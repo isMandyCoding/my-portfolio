@@ -5,10 +5,8 @@ import MainLinks from "./MainLinks";
 import ColorModeToggle from "./ColorModeToggle";
 import ContactLinks from "./ContactLinks";
 import { ReactComponent as MenuIcon } from "../svg/menu.svg";
-import StyleableSVG from "./StyleableSVG";
 import IconButton from "./IconButton";
 import MobileMenuDrawer from "./MobileMenuDrawer";
-import Divider from "./Divider";
 
 export interface NavBarProps {
   sx?: ThemeUIStyleObject | undefined;
@@ -18,12 +16,10 @@ const NavBar = ({ sx }: NavBarProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleMenuOpen: MouseEventHandler<HTMLButtonElement> = () => {
-    console.log("open Menu");
     setMenuOpen(true);
   };
 
   const handleMenuClose: MouseEventHandler<HTMLButtonElement> = () => {
-    console.log("close Menu");
     setMenuOpen(false);
   };
   return (
@@ -35,13 +31,25 @@ const NavBar = ({ sx }: NavBarProps) => {
         flexDirection: "row",
         justifyContent: "space-between",
         alignContent: "center",
+        minHeight: "48px",
         ...sx,
       }}
     >
+      <div
+        sx={{
+          display: ["none", menuOpen ? "none" : "flex", "none", "none"],
+          justifyContent: "center",
+          alignItems: "center",
+          mx: 2,
+          px: 0,
+        }}
+      >
+        <IconButton icon={<MenuIcon />} onClick={handleMenuOpen} />
+      </div>
       <MobileMenuDrawer isOpen={menuOpen} onMenuClose={handleMenuClose} />
       <div
         sx={{
-          display: ["none", "block", "block"],
+          display: ["none", "none", "block", "block"],
         }}
       >
         <MainLinks />
@@ -49,7 +57,7 @@ const NavBar = ({ sx }: NavBarProps) => {
 
       <div
         sx={{
-          display: ["none", "block", "block"],
+          display: ["none", "block", "block", "block"],
         }}
       >
         <ul
@@ -58,7 +66,7 @@ const NavBar = ({ sx }: NavBarProps) => {
             m: 0,
             p: 0,
             display: "flex",
-            flexDirection: ["column", "row", "row"],
+            flexDirection: ["column", "row", "row", "row"],
             justifyContent: "space-between",
           }}
         >
@@ -73,7 +81,11 @@ const NavBar = ({ sx }: NavBarProps) => {
 
       <div
         sx={{
-          display: [menuOpen ? "none" : "block", "none", "none"],
+          display: [menuOpen ? "none" : "flex", "none", "none", "none"],
+          justifyContent: "center",
+          alignItems: "center",
+          mx: 2,
+          px: 4,
         }}
       >
         <IconButton icon={<MenuIcon />} onClick={handleMenuOpen} />

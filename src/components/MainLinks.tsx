@@ -7,7 +7,7 @@ const MainLinks = () => {
     <ul
       sx={{
         display: "flex",
-        flexDirection: ["column", "row", "row"],
+        flexDirection: ["column", "column", "row", "row"],
         alignItems: "start",
         m: 0,
         px: 3,

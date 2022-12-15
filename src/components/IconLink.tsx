@@ -1,7 +1,6 @@
 /** @jsxImportSource theme-ui */
 import React, { HTMLAttributeAnchorTarget, ReactElement } from "react";
 import StyleableSVG from "./StyleableSVG";
-import { Link, To, useLocation } from "react-router-dom";
 
 export interface IconLinkProps {
   to: string;

@@ -1,6 +1,5 @@
 /** @jsxImportSource theme-ui */
 import React, { ChangeEventHandler } from "react";
-import { useThemeUI } from "theme-ui";
 
 export interface SwitchProps {
   checked?: boolean;
@@ -8,7 +7,6 @@ export interface SwitchProps {
 }
 
 const Switch = ({ checked, onClick }: SwitchProps) => {
-  const { theme } = useThemeUI();
   return (
     <label
       sx={{

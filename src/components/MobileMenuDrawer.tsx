@@ -16,7 +16,7 @@ const MobileMenuDrawer = ({ isOpen, onMenuClose }: MobileMenuDrawerProps) => {
   return (
     <div
       sx={{
-        display: ["block", "none", "none"],
+        display: ["block", "block", "none", "none"],
         transition: "150ms",
         position: "absolute",
         left: 0,
@@ -27,27 +27,40 @@ const MobileMenuDrawer = ({ isOpen, onMenuClose }: MobileMenuDrawerProps) => {
           ? (theme) => `0px 0 16px 0px ${theme?.colors?.textLight}`
           : "none",
         transform: isOpen ? "translateX(0)" : "translateX(-100%)",
-        width: "80%",
+        width: ["100%", "80%", null, null],
         height: "100%",
         overflow: "hidden",
         minWidth: "260px",
+        zIndex: 1,
       }}
     >
-      <div>
+      <div
+        sx={{
+          my: 2,
+          px: 2,
+        }}
+      >
         <IconButton icon={<CloseIcon />} onClick={onMenuClose} />
       </div>
       <div>
         <MainLinks />
       </div>
-      <Divider />
+      <div
+        sx={{
+          display: ["block", "none", "none", "none"],
+        }}
+      >
+        <Divider />
+      </div>
       <div>
         <ul
           sx={{
             listStyle: "none",
             m: 0,
-            p: 0,
-            display: "flex",
-            flexDirection: ["column", "row", "row"],
+            py: 0,
+            px: 1,
+            display: ["flex", "none", "none", "none"],
+            flexDirection: ["column", "column", "row", "row"],
             justifyContent: "space-between",
           }}
         >

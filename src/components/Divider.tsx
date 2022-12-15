@@ -10,7 +10,8 @@ const Divider = ({ isVertical }: DividerProps) => {
     <div
       sx={{
         display: "flex",
-        justifyContent: "center",
+        mx: 2,
+        px: 2,
       }}
     >
       <div

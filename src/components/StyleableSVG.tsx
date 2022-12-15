@@ -1,7 +1,5 @@
 /** @jsxImportSource theme-ui */
 import React, { ReactElement } from "react";
-import { ThemeUIStyleObject } from "theme-ui";
-// import {merge} from "lodash"
 
 export interface StyleableSVGProps {
   svg: ReactElement;
@@ -16,7 +14,7 @@ const StyleableSVG = ({ svg, isClickable }: StyleableSVGProps) => {
           width: "32px",
           height: "32px",
           display: "flex",
-          justifyContent: "space-between",
+          justifyContent: "center",
           path: {
             fill: "text",
             transition: "150ms",

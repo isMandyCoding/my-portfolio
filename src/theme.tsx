@@ -35,11 +35,7 @@ export const theme: Theme = {
       fontWeight: "heading",
     },
   },
-  breakpoints: [
-    "40em",
-    "@media (min-width: 56em) and (orientation: landscape)",
-    "64em",
-  ],
+  breakpoints: ["480px", "768px", "1024px", "1200px"],
   styles: {
     root: {
       fontFamily: "body",
