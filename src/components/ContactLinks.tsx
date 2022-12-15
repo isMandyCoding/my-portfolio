@@ -16,17 +16,23 @@ const ContactLinks = () => {
         p: 0,
       }}
     >
-      <IconLink to="mailto:me@example.com" icon={<EmailIcon />} />
-      <IconLink
-        to="https://www.linkedin.com/in/amanda-everett/"
-        target="_blank"
-        icon={<LinkedInIcon />}
-      />
-      <IconLink
-        to="https://github.com/isMandyCoding"
-        target="_blank"
-        icon={<GitHubIcon />}
-      />
+      <span sx={{ mx: 2 }}>
+        <IconLink to="mailto:me@example.com" icon={<EmailIcon />} />
+      </span>
+      <span sx={{ mx: 2 }}>
+        <IconLink
+          to="https://www.linkedin.com/in/amanda-everett/"
+          target="_blank"
+          icon={<LinkedInIcon />}
+        />
+      </span>
+      <span sx={{ mx: 2 }}>
+        <IconLink
+          to="https://github.com/isMandyCoding"
+          target="_blank"
+          icon={<GitHubIcon />}
+        />
+      </span>
     </ul>
   );
 };

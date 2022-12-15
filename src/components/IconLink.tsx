@@ -20,7 +20,7 @@ const IconLink = ({ to, icon, target }: IconLinkProps) => {
       href={to}
       target={target}
     >
-      <StyleableSVG svg={icon} />
+      <StyleableSVG isClickable svg={icon} />
     </a>
   );
 };

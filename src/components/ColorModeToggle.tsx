@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-import React, { MouseEventHandler } from "react";
+import React, { ChangeEventHandler } from "react";
 import { ReactComponent as SunshineLogo } from "../svg/sunshine.svg";
 import { ReactComponent as SleepingMoonLogo } from "../svg/sleeping.svg";
 import StyleableSVG from "./StyleableSVG";
@@ -9,7 +9,7 @@ import Switch from "./Switch";
 const ColorModeToggle = () => {
   const [colorMode, setColorMode] = useColorMode();
 
-  const handleToggleClick: MouseEventHandler<HTMLInputElement> = (event) => {
+  const handleToggleClick: ChangeEventHandler<HTMLInputElement> = (event) => {
     if (event.currentTarget.checked) {
       setColorMode("dark");
     } else {
@@ -25,9 +25,13 @@ const ColorModeToggle = () => {
         alignItems: "center",
       }}
     >
-      <StyleableSVG svg={<SunshineLogo />} />
+      <span sx={{ mx: 2 }}>
+        <StyleableSVG svg={<SunshineLogo />} />
+      </span>
       <Switch checked={colorMode === "dark"} onClick={handleToggleClick} />
-      <StyleableSVG svg={<SleepingMoonLogo />} />
+      <span sx={{ mx: 2 }}>
+        <StyleableSVG svg={<SleepingMoonLogo />} />
+      </span>
     </div>
   );
 };

@@ -1,13 +1,14 @@
 /** @jsxImportSource theme-ui */
 import React, { ReactElement } from "react";
 import { ThemeUIStyleObject } from "theme-ui";
+// import {merge} from "lodash"
 
 export interface StyleableSVGProps {
   svg: ReactElement;
-  sx?: ThemeUIStyleObject | undefined;
+  isClickable?: boolean;
 }
 
-const StyleableSVG = ({ svg, sx }: StyleableSVGProps) => {
+const StyleableSVG = ({ svg, isClickable }: StyleableSVGProps) => {
   return (
     <div
       sx={{
@@ -16,9 +17,14 @@ const StyleableSVG = ({ svg, sx }: StyleableSVGProps) => {
           height: "32px",
           display: "flex",
           justifyContent: "space-between",
-          mx: 2,
           path: {
             fill: "text",
+            transition: "150ms",
+          },
+          "&:hover": {
+            path: {
+              fill: isClickable ? "textLight" : "text",
+            },
           },
         },
       }}

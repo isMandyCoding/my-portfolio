@@ -8,9 +8,11 @@ const MainLinks = () => {
       sx={{
         display: "flex",
         flexDirection: ["column", "row", "row"],
+        alignItems: "start",
         m: 0,
         px: 3,
         listStyle: "none",
+        overflow: "hidden",
       }}
     >
       <NavBarLink to="/" text="Home" />

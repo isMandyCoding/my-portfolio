@@ -16,25 +16,12 @@ const NavBarLink = ({ text, to }: NavBarLinkProps) => {
       sx={{
         px: 3,
         py: 2,
+        transition: "background 150ms",
+        bg: isActive ? (theme) => `${theme?.colors?.textLight}` : "transparent",
         position: "relative",
-        "&::before": {
-          position: "absolute",
-          top: 0,
-          left: 0,
-          bottom: 0,
-          right: 0,
-          width: "100%",
-          background: "text",
-          opacity: isActive ? 0.5 : 0,
-          content: "''",
-          zIndex: -1,
-          transition: "opacity 150ms",
-        },
         "&:hover": {
           cursor: "pointer",
-          "&::before": {
-            opacity: 0.5,
-          },
+          bg: (theme) => `${theme?.colors?.textLight}`,
           a: {
             color: "background",
             fontWeight: "bold",

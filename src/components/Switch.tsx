@@ -1,10 +1,10 @@
 /** @jsxImportSource theme-ui */
-import React, { MouseEventHandler } from "react";
+import React, { ChangeEventHandler } from "react";
 import { useThemeUI } from "theme-ui";
 
 export interface SwitchProps {
   checked?: boolean;
-  onClick?: MouseEventHandler<HTMLInputElement>;
+  onClick?: ChangeEventHandler<HTMLInputElement>;
 }
 
 const Switch = ({ checked, onClick }: SwitchProps) => {
@@ -36,7 +36,7 @@ const Switch = ({ checked, onClick }: SwitchProps) => {
           },
         }}
         checked={checked}
-        onClick={onClick}
+        onChange={onClick}
       />
       <span
         sx={{
