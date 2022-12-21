@@ -5,6 +5,7 @@ export const theme: Theme = {
     body: "Space Mono, monospace",
     heading: '"IBM Plex Mono", monospace',
     monospace: '"Space Mono", monospace',
+    cursive: "'Beth Ellen', cursive",
   },
   colors: {
     text: "#004369",
@@ -34,8 +35,13 @@ export const theme: Theme = {
       lineHeight: "heading",
       fontWeight: "heading",
     },
+    cursive: {
+      fontFamily: "'Beth Ellen', cursive",
+      lineHeight: "body",
+      fontWeight: "body",
+    },
   },
-  breakpoints: ["480px", "768px", "1024px", "1200px"],
+  breakpoints: ["480px", "850px", "1024px", "1200px"],
   styles: {
     root: {
       fontFamily: "body",

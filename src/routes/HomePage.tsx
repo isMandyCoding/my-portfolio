@@ -10,8 +10,9 @@ const HomePage = () => {
     >
       <h1
         sx={{
-          color: "text",
-          fontFamily: "heading",
+          // color: "text",
+          // fontFamily: "heading",
+          variant: "heading",
         }}
       >
         Mandy <span sx={{ color: "primary" }}>Everett</span>

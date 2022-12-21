@@ -2,6 +2,13 @@
 import { Outlet } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import { ReactComponent as FlowerIcon } from "../svg/daisy.svg";
+import { Box } from "theme-ui";
+import { keyframes } from "@emotion/react";
+
+const twirl = keyframes({
+  from: { transform: "rotate(0)" },
+  to: { transform: "rotate(180)" },
+});
 
 export default function Root() {
   return (
@@ -14,7 +21,8 @@ export default function Root() {
       <div
         sx={{
           display: "grid",
-          gridTemplateRows: "12vh 1fr",
+          gridTemplateRows: "78px 1fr",
+          gap: 1,
           minHeight: "100vh",
           maxWidth: "1080px",
         }}
@@ -25,16 +33,11 @@ export default function Root() {
         <main
           sx={{
             display: "grid",
-            gridTemplateColumns: [
-              "1fr",
-              "1fr",
-              "1fr 1fr",
-              "3fr 2fr",
-              "3fr 2fr",
-            ],
-            gridTemplateRows: ["1fr", "1fr", "1fr", "1fr", "1fr"],
+            gridTemplateColumns: ["1fr", "1fr", "1fr 1fr", "3fr 2fr"],
+            gridTemplateRows: "1fr",
             gap: "20px",
             padding: 4,
+            mx: 0,
             minWidth: "320px",
           }}
           id="detail"
@@ -42,26 +45,20 @@ export default function Root() {
           <div
             sx={{
               position: "relative",
-              height: ["10vh", "10vh", "10vh"],
+              "&::after": {
+                position: "absolute",
+                top: 0,
+                left: 0,
+                display: "inline-block",
+                content: "''",
+                borderTop: (theme) => `1px solid ${theme?.colors?.accent}`,
+                borderLeft: (theme) => `1px solid ${theme?.colors?.accent}`,
+                width: "16rem",
+                height: "8rem",
+              },
             }}
           >
-            <div
-              sx={{
-                "&::after": {
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  display: "inline-block",
-                  content: "''",
-                  borderTop: (theme) => `1px solid ${theme?.colors?.accent}`,
-                  borderLeft: (theme) => `1px solid ${theme?.colors?.accent}`,
-                  width: ["80%", "48%", "80%"],
-                  height: ["10vh", "10vh", "10vh"],
-                },
-              }}
-            >
-              <Outlet />
-            </div>
+            <Outlet />
           </div>
           <div
             sx={{
@@ -78,6 +75,8 @@ export default function Root() {
                 position: [null, null, null, "absolute"],
                 bottom: 4,
                 left: "50%",
+
+                // animation: `${twirl} 1s backwards`,
                 svg: {
                   marginBottom: 2,
                   width: "112px",
@@ -111,8 +110,8 @@ export default function Root() {
                   content: "''",
                   borderBottom: (theme) => `1px solid ${theme?.colors?.accent}`,
                   borderRight: (theme) => `1px solid ${theme?.colors?.accent}`,
-                  width: ["80%", "48%", "80%"],
-                  height: ["10vh", "10vh", "10vh"],
+                  width: "16rem",
+                  height: "8rem",
                 },
               }}
             ></div>

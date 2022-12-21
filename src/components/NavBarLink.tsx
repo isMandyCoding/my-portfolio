@@ -16,7 +16,7 @@ const NavBarLink = ({ text, to }: NavBarLinkProps) => {
       sx={{
         px: 3,
         py: 2,
-        transition: "background 150ms",
+        transition: "all 150ms",
         bg: isActive ? (theme) => `${theme?.colors?.textLight}` : "transparent",
         position: "relative",
         "&:hover": {
@@ -24,12 +24,24 @@ const NavBarLink = ({ text, to }: NavBarLinkProps) => {
           bg: (theme) => `${theme?.colors?.textLight}`,
           a: {
             color: "background",
-            fontWeight: "bold",
             transition: "color 150ms, font-weight 150ms",
+          },
+          span: {
+            color: "secondary",
           },
         },
       }}
     >
+      <span
+        sx={{
+          mx: 1,
+          textDecorationUnderline: "none",
+          variant: "text.cursive",
+          color: isActive ? "secondary" : "primary",
+        }}
+      >
+        {"</>"}
+      </span>
       <Link
         sx={{
           fontFamily: "body",

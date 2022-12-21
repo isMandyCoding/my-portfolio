@@ -31,7 +31,6 @@ const NavBar = ({ sx }: NavBarProps) => {
         flexDirection: "row",
         justifyContent: "space-between",
         alignContent: "center",
-        minHeight: "48px",
         ...sx,
       }}
     >
@@ -85,7 +84,7 @@ const NavBar = ({ sx }: NavBarProps) => {
           justifyContent: "center",
           alignItems: "center",
           mx: 2,
-          px: 4,
+          px: 1,
         }}
       >
         <IconButton icon={<MenuIcon />} onClick={handleMenuOpen} />

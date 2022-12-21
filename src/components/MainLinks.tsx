@@ -15,7 +15,7 @@ const MainLinks = () => {
         overflow: "hidden",
       }}
     >
-      <NavBarLink to="/" text="Home" />
+      <NavBarLink to="/" text="About" />
       <NavBarLink to="/experience" text="Experience" />
       <NavBarLink to="/contact" text="Contact" />
     </ul>
