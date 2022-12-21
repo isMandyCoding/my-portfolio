@@ -14,11 +14,8 @@ const NavBarLink = ({ text, to }: NavBarLinkProps) => {
   return (
     <li
       sx={{
-        px: 3,
-        py: 2,
         transition: "all 150ms",
         bg: isActive ? (theme) => `${theme?.colors?.textLight}` : "transparent",
-        position: "relative",
         "&:hover": {
           cursor: "pointer",
           bg: (theme) => `${theme?.colors?.textLight}`,
@@ -26,32 +23,36 @@ const NavBarLink = ({ text, to }: NavBarLinkProps) => {
             color: "background",
             transition: "color 150ms, font-weight 150ms",
           },
-          span: {
-            color: "secondary",
-          },
         },
       }}
     >
-      <span
-        sx={{
-          mx: 1,
-          textDecorationUnderline: "none",
-          variant: "text.cursive",
-          color: isActive ? "secondary" : "primary",
-        }}
-      >
-        {"</>"}
-      </span>
       <Link
         sx={{
           fontFamily: "body",
           fontSize: 3,
           fontWeight: isActive ? "bold" : "normal",
           color: isActive ? "background" : "text",
+          textDecoration: "none",
+          p: 3,
         }}
         to={to}
       >
-        {text}
+        <span
+          sx={{
+            mx: 1,
+            variant: "text.cursive",
+            color: isActive ? "secondary" : "primary",
+          }}
+        >
+          {"</>"}
+        </span>
+        <span
+          sx={{
+            textDecoration: "underline",
+          }}
+        >
+          {text}
+        </span>
       </Link>
     </li>
   );
