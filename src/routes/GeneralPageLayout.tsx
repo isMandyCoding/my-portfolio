@@ -179,7 +179,6 @@ export default function GeneralPageLayout({
           height: "100vh",
           maxWidth: "1080px",
           position: "relative",
-          // animation: `${animateGrid} 2s forwards`,
         }}
       >
         <header
@@ -235,7 +234,7 @@ export default function GeneralPageLayout({
             marginRight: [5, null, null, null, null],
             minWidth: "320px",
             maskImage: (theme) =>
-              `linear-gradient(to bottom, ${theme.colors?.background} 80%, transparent 100%)`,
+              `linear-gradient(to bottom, ${theme.colors?.background} 90%, transparent 100%)`,
             overflowY: "scroll",
             maxHeight: "100%",
             scrollbarWidth: "none",

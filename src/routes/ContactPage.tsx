@@ -1,5 +1,6 @@
 /** @jsxImportSource theme-ui */
 import React, { ChangeEventHandler, useState } from "react";
+import Button from "../components/Button";
 import Input from "../components/Input";
 import PageHeading from "../components/PageHeading";
 import TextArea from "../components/TextArea";
@@ -99,7 +100,14 @@ const ContactPage = () => {
           value={messageContent}
           onChange={handleContentChange}
         ></TextArea>
-        <button type="submit">Submit</button>
+        <div
+          sx={{
+            display: "flex",
+            justifyContent: "flex-end",
+          }}
+        >
+          <Button type="submit">Submit</Button>
+        </div>
       </form>
     </div>
   );
