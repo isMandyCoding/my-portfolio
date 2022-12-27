@@ -15,13 +15,13 @@ const NavBarLink = ({ text, to }: NavBarLinkProps) => {
     <li
       sx={{
         transition: "all 150ms",
-        bg: isActive ? (theme) => `${theme?.colors?.textLight}` : "transparent",
+        bg: "transparent",
         "&:hover": {
           cursor: "pointer",
           bg: (theme) => `${theme?.colors?.textLight}`,
           a: {
             color: "background",
-            transition: "color 150ms, font-weight 150ms",
+            transition: "color 150ms",
           },
         },
       }}
@@ -31,15 +31,18 @@ const NavBarLink = ({ text, to }: NavBarLinkProps) => {
           fontFamily: "body",
           fontSize: 3,
           fontWeight: isActive ? "bold" : "normal",
-          color: isActive ? "background" : "text",
+          color: "text",
           textDecoration: "none",
-          p: 3,
+          py: 2,
+          px: 3,
+          display: "flex",
+          alignItems: "center",
         }}
         to={to}
       >
         <span
           sx={{
-            mx: 1,
+            marginRight: 3,
             variant: "text.cursive",
             color: isActive ? "secondary" : "primary",
           }}

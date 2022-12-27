@@ -15,11 +15,13 @@ const StyleableSVG = ({ svg, isClickable }: StyleableSVGProps) => {
           height: "32px",
           display: "flex",
           justifyContent: "center",
+
           path: {
             fill: "text",
             transition: "150ms",
           },
           "&:hover": {
+            cursor: isClickable ? "pointer" : "auto",
             path: {
               fill: isClickable ? "textLight" : "text",
             },

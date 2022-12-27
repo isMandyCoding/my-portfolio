@@ -4,8 +4,10 @@ import { ThemeProvider } from "theme-ui";
 import { theme } from "./theme";
 import { createBrowserRouter, RouterProvider, Route } from "react-router-dom";
 import Root from "./routes/Root";
-import HomePage from "./routes/HomePage";
 import ErrorPage from "./error-page";
+import HomePage from "./routes/HomePage";
+import ExperiencePage from "./routes/ExperiencePage";
+import ContactPage from "./routes/ContactPage";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +18,14 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <HomePage />,
+      },
+      {
+        path: "/experience",
+        element: <ExperiencePage />,
+      },
+      {
+        path: "/contact",
+        element: <ContactPage />,
       },
     ],
   },

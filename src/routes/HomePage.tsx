@@ -1,5 +1,6 @@
 /** @jsxImportSource theme-ui */
 import React from "react";
+import PageHeading from "../components/PageHeading";
 
 const HomePage = () => {
   return (
@@ -8,15 +9,8 @@ const HomePage = () => {
         m: 4,
       }}
     >
-      <h1
-        sx={{
-          // color: "text",
-          // fontFamily: "heading",
-          variant: "heading",
-        }}
-      >
-        Mandy <span sx={{ color: "primary" }}>Everett</span>
-      </h1>
+      <PageHeading headingText="Amanda Everett" />
+
       <h2 sx={{ font: "body", opacity: 0.75 }}>Software Engineer</h2>
       <p>
         Some text here. Probably something like a heading to fill the space and
