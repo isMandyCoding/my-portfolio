@@ -1,9 +1,9 @@
 /** @jsxImportSource theme-ui */
-import { Outlet } from "react-router-dom";
 import NavBar from "../components/NavBar";
 import { ReactComponent as FlowerIcon } from "../svg/daisy.svg";
 import { keyframes } from "@emotion/react";
-import { HTMLAttributes } from "react";
+import { HTMLAttributes, MouseEventHandler, useState } from "react";
+import MobileMenuDrawer from "../components/MobileMenuDrawer";
 
 const fadeIn = keyframes({
   from: {
@@ -141,15 +141,6 @@ to {
   height: 8rem;
 }`;
 
-// const animateGrid = keyframes({
-//   from: {
-//     gridTemplate: ["auto 1fr auto"],
-//   },
-//   to: {
-//     gridTemplate: ["auto 1fr auto"],
-//   },
-// });
-
 export interface GeneralPageLayoutProps
   extends HTMLAttributes<HTMLDivElement> {}
 
@@ -157,6 +148,14 @@ export default function GeneralPageLayout({
   children,
   ...props
 }: GeneralPageLayoutProps) {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const handleMenuOpen: MouseEventHandler<HTMLButtonElement> = () => {
+    setMenuOpen(true);
+  };
+  const handleMenuClose: MouseEventHandler<HTMLButtonElement> = () => {
+    setMenuOpen(false);
+  };
   return (
     <div
       {...props}
@@ -174,7 +173,7 @@ export default function GeneralPageLayout({
       <div
         sx={{
           display: "grid",
-          gridTemplateRows: "10vh 1fr 15vh",
+          gridTemplateRows: "80px 1fr 15vh",
           gap: 1,
           height: "100vh",
           maxWidth: "1080px",
@@ -196,7 +195,7 @@ export default function GeneralPageLayout({
               animationDelay: "2s",
             }}
           >
-            <NavBar />
+            <NavBar handleMenuOpen={handleMenuOpen} menuOpen={menuOpen} />
           </div>
           <div
             sx={{
@@ -328,6 +327,7 @@ export default function GeneralPageLayout({
           ></div>
         </div>
       </div>
+      <MobileMenuDrawer isOpen={menuOpen} onMenuClose={handleMenuClose} />
     </div>
   );
 }

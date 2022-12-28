@@ -1,27 +1,19 @@
 /** @jsxImportSource theme-ui */
-import React, { MouseEventHandler, useState } from "react";
+import React, { MouseEventHandler } from "react";
 import { ThemeUIStyleObject } from "theme-ui";
 import MainLinks from "./MainLinks";
 import ColorModeToggle from "./ColorModeToggle";
 import ContactLinks from "./ContactLinks";
 import { ReactComponent as MenuIcon } from "../svg/square.svg";
 import IconButton from "./IconButton";
-import MobileMenuDrawer from "./MobileMenuDrawer";
 
 export interface NavBarProps {
   sx?: ThemeUIStyleObject | undefined;
+  handleMenuOpen: MouseEventHandler<HTMLButtonElement>;
+  menuOpen?: boolean;
 }
 
-const NavBar = ({ sx }: NavBarProps) => {
-  const [menuOpen, setMenuOpen] = useState(false);
-
-  const handleMenuOpen: MouseEventHandler<HTMLButtonElement> = () => {
-    setMenuOpen(true);
-  };
-
-  const handleMenuClose: MouseEventHandler<HTMLButtonElement> = () => {
-    setMenuOpen(false);
-  };
+const NavBar = ({ sx, handleMenuOpen, menuOpen }: NavBarProps) => {
   return (
     <nav
       sx={{
@@ -46,7 +38,6 @@ const NavBar = ({ sx }: NavBarProps) => {
       >
         <IconButton icon={<MenuIcon />} onClick={handleMenuOpen} />
       </div>
-      <MobileMenuDrawer isOpen={menuOpen} onMenuClose={handleMenuClose} />
       <div
         sx={{
           display: ["none", "none", "block", "block"],

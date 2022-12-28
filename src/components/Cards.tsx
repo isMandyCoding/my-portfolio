@@ -15,8 +15,8 @@ const Cards = ({ cardList }: CardsProps) => {
         gap: 3,
       }}
     >
-      {cardList.map((item) => {
-        return <Card {...item} />;
+      {cardList.map((item, index) => {
+        return <Card {...item} key={index} />;
       })}
     </div>
   );

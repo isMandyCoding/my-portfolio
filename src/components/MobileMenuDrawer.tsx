@@ -28,10 +28,9 @@ const MobileMenuDrawer = ({ isOpen, onMenuClose }: MobileMenuDrawerProps) => {
           : "none",
         transform: isOpen ? "translateX(0)" : "translateX(-100%)",
         width: ["100%", "80%", null, null],
-        height: "100%",
+        height: "100vh",
         overflow: "hidden",
         minWidth: "260px",
-        zIndex: 1,
       }}
     >
       <div

@@ -16,8 +16,8 @@ const Chips = ({ chipList }: ChipsProps) => {
         gap: 2,
       }}
     >
-      {chipList.map((item) => {
-        return <Chip text={item} />;
+      {chipList.map((item, index) => {
+        return <Chip key={index} text={item} />;
       })}
     </div>
   );
