@@ -1,5 +1,10 @@
 /** @jsxImportSource theme-ui */
-import React, { MouseEventHandler } from "react";
+import React, {
+  MouseEventHandler,
+  TouchEventHandler,
+  useEffect,
+  useState,
+} from "react";
 import ColorModeToggle from "./ColorModeToggle";
 import ContactLinks from "./ContactLinks";
 import IconButton from "./IconButton";
@@ -9,10 +14,37 @@ import Divider from "./Divider";
 
 export interface MobileMenuDrawerProps {
   isOpen: boolean;
-  onMenuClose: MouseEventHandler<HTMLButtonElement>;
+  onMenuClose: () => void;
 }
 
 const MobileMenuDrawer = ({ isOpen, onMenuClose }: MobileMenuDrawerProps) => {
+  const [touchStart, setTouchStart] = useState<null | number>(null);
+  const [touchEnd, setTouchEnd] = useState<null | number>(null);
+
+  const onTouchEnd: TouchEventHandler<HTMLDivElement> = (e) => {
+    if (!touchStart || !touchEnd) return;
+    setTouchEnd(e.changedTouches[0].clientX);
+    const minSwipeDistance = 50;
+
+    if (touchStart - touchEnd > minSwipeDistance) {
+      onMenuClose();
+    }
+  };
+
+  const onTouchStart: TouchEventHandler<HTMLDivElement> = (e) => {
+    setTouchEnd(null);
+    setTouchStart(e.changedTouches[0].clientX);
+  };
+
+  const onTouchMove: TouchEventHandler<HTMLDivElement> = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchCancel: TouchEventHandler<HTMLDivElement> = (e) => {
+    setTouchStart(null);
+    setTouchEnd(null);
+  };
+
   return (
     <div
       sx={{
@@ -32,6 +64,10 @@ const MobileMenuDrawer = ({ isOpen, onMenuClose }: MobileMenuDrawerProps) => {
         overflow: "hidden",
         minWidth: "260px",
       }}
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
+      onTouchMove={onTouchMove}
+      onTouchCancel={handleTouchCancel}
     >
       <div
         sx={{
@@ -42,7 +78,7 @@ const MobileMenuDrawer = ({ isOpen, onMenuClose }: MobileMenuDrawerProps) => {
         <IconButton icon={<CloseIcon />} onClick={onMenuClose} />
       </div>
       <div>
-        <MainLinks />
+        <MainLinks onMenuClose={onMenuClose} />
       </div>
       <div
         sx={{

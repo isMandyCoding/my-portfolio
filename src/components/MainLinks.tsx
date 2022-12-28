@@ -2,7 +2,16 @@
 import React from "react";
 import NavBarLink from "./NavBarLink";
 
-const MainLinks = () => {
+export interface MainLinksProps {
+  onMenuClose?: () => void;
+}
+
+const MainLinks = ({ onMenuClose }: MainLinksProps) => {
+  const handleLinkClick = () => {
+    if (onMenuClose) {
+      onMenuClose();
+    }
+  };
   return (
     <ul
       sx={{
@@ -15,9 +24,13 @@ const MainLinks = () => {
         overflow: "hidden",
       }}
     >
-      <NavBarLink to="/" text="About" />
-      <NavBarLink to="/experience" text="Experience" />
-      <NavBarLink to="/contact" text="Contact" />
+      <NavBarLink onClick={handleLinkClick} to="/" text="About" />
+      <NavBarLink
+        onClick={handleLinkClick}
+        to="/experience"
+        text="Experience"
+      />
+      <NavBarLink onClick={handleLinkClick} to="/contact" text="Contact" />
     </ul>
   );
 };

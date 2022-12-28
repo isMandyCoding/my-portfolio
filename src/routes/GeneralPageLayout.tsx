@@ -153,7 +153,7 @@ export default function GeneralPageLayout({
   const handleMenuOpen: MouseEventHandler<HTMLButtonElement> = () => {
     setMenuOpen(true);
   };
-  const handleMenuClose: MouseEventHandler<HTMLButtonElement> = () => {
+  const handleMenuClose = () => {
     setMenuOpen(false);
   };
   return (

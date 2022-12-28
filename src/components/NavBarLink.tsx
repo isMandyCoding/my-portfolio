@@ -1,13 +1,13 @@
 /** @jsxImportSource theme-ui */
-import React from "react";
+import React, { LiHTMLAttributes } from "react";
 import { Link, useLocation } from "react-router-dom";
 
-export interface NavBarLinkProps {
+export interface NavBarLinkProps extends LiHTMLAttributes<HTMLLIElement> {
   text: string;
   to: string;
 }
 
-const NavBarLink = ({ text, to }: NavBarLinkProps) => {
+const NavBarLink = ({ text, to, onClick, ...props }: NavBarLinkProps) => {
   let location = useLocation();
   const isActive = location.pathname === to;
 
@@ -25,6 +25,7 @@ const NavBarLink = ({ text, to }: NavBarLinkProps) => {
           },
         },
       }}
+      onClick={onClick}
     >
       <Link
         sx={{
