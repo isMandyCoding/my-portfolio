@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 import React from "react";
 import IconLink from "./IconLink";
-import { ReactComponent as EmailIcon } from "../svg/new-email.svg";
+import { ReactComponent as EmailIcon } from "../svg/email.svg";
 import { ReactComponent as LinkedInIcon } from "../svg/linkedin.svg";
 import { ReactComponent as GitHubIcon } from "../svg/github.svg";
 

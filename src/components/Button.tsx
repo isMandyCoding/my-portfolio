@@ -1,9 +1,7 @@
 /** @jsxImportSource theme-ui */
-import React, { DetailedHTMLProps, useState } from "react";
-import { SxProp } from "theme-ui";
+import React, { ButtonHTMLAttributes } from "react";
 
-export interface ButtonProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {}
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {}
 
 const Button = ({ children, ...props }: ButtonProps) => {
   return (
@@ -22,6 +20,10 @@ const Button = ({ children, ...props }: ButtonProps) => {
           cursor: "pointer",
           border: (theme) => `2px solid ${theme.colors?.accent}`,
           color: "accent",
+        },
+        "&:focus": {
+          outline: "none",
+          boxShadow: (theme) => `2px 2px 8px 0px ${theme.colors?.shadow}`,
         },
       }}
       {...props}

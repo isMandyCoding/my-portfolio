@@ -56,7 +56,7 @@ const Input = ({ labelProps, label, ...props }: InputProps) => {
           color: "text",
           "&:focus": {
             outline: "none",
-            boxShadow: (theme) => `2px 2px 8px 0px ${theme.colors?.textLight}`,
+            boxShadow: (theme) => `2px 2px 8px 0px ${theme.colors?.shadow}`,
           },
           "&:invalid": {
             borderColor: touched ? "primary" : "inherit",

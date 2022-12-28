@@ -4,7 +4,7 @@ import { ThemeUIStyleObject } from "theme-ui";
 import MainLinks from "./MainLinks";
 import ColorModeToggle from "./ColorModeToggle";
 import ContactLinks from "./ContactLinks";
-import { ReactComponent as MenuIcon } from "../svg/menu.svg";
+import { ReactComponent as MenuIcon } from "../svg/square.svg";
 import IconButton from "./IconButton";
 import MobileMenuDrawer from "./MobileMenuDrawer";
 

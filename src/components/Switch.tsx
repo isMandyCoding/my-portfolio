@@ -30,7 +30,7 @@ const Switch = ({ checked, onClick }: SwitchProps) => {
             },
           },
           "&:focus + span": {
-            boxShadow: "0 0 1px text",
+            boxShadow: (theme) => `2px 2px 8px 0px ${theme.colors?.shadow}`,
           },
         }}
         checked={checked}

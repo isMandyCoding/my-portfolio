@@ -174,7 +174,7 @@ export default function GeneralPageLayout({
       <div
         sx={{
           display: "grid",
-          gridTemplateRows: "15vh 1fr 15vh",
+          gridTemplateRows: "10vh 1fr 15vh",
           gap: 1,
           height: "100vh",
           maxWidth: "1080px",
@@ -234,7 +234,7 @@ export default function GeneralPageLayout({
             marginRight: [5, null, null, null, null],
             minWidth: "320px",
             maskImage: (theme) =>
-              `linear-gradient(to bottom, ${theme.colors?.background} 90%, transparent 100%)`,
+              `linear-gradient(to bottom, ${theme.colors?.background} 80%, transparent 100%)`,
             overflowY: "scroll",
             maxHeight: "100%",
             scrollbarWidth: "none",
@@ -246,6 +246,7 @@ export default function GeneralPageLayout({
               opacity: 0,
               animation: `${fadeIn} 1s forwards`,
               animationDelay: "2s",
+              marginBottom: 3,
             }}
           >
             {children}

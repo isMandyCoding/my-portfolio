@@ -4,7 +4,7 @@ import ColorModeToggle from "./ColorModeToggle";
 import ContactLinks from "./ContactLinks";
 import IconButton from "./IconButton";
 import MainLinks from "./MainLinks";
-import { ReactComponent as CloseIcon } from "../svg/cancel.svg";
+import { ReactComponent as CloseIcon } from "../svg/close.svg";
 import Divider from "./Divider";
 
 export interface MobileMenuDrawerProps {

@@ -1,6 +1,6 @@
 /** @jsxImportSource theme-ui */
 import React, { useState } from "react";
-import { ReactComponent as GitHubIcon } from "../svg/github.svg";
+import { ReactComponent as GitHubIcon } from "../svg/down-arrow.svg";
 import IconButton from "./IconButton";
 import StyleableSVG from "./StyleableSVG";
 

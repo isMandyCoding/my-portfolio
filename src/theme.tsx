@@ -10,6 +10,7 @@ export const theme: Theme = {
   colors: {
     text: "#004369",
     textLight: "#00436950",
+    shadow: "#00436950",
     background: "#faf0d3",
     accentBackground: "#01626650",
     hover: "#F0E6CA",
@@ -22,6 +23,7 @@ export const theme: Theme = {
         text: "#faf0d3",
         textLight: "#faf0d350",
         background: "#004369",
+        shadow: "#001E2F",
         accentBackground: "#01626650",
         hover: "#046196",
         primary: "#ff5757",

@@ -24,6 +24,13 @@ const IconButton = ({ icon, onClick }: IconButtonProps) => {
             },
           },
         },
+        "&:focus, &:active": {
+          outline: "none",
+          svg: {
+            filter: (theme) =>
+              `drop-shadow(2px 2px 2px ${theme.colors?.shadow})`,
+          },
+        },
       }}
       onClick={onClick}
     >
