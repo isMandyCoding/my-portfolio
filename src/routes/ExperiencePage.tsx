@@ -30,11 +30,15 @@ const ExperiencePage = () => {
       cardTitle: "Software Engineer",
       cardSubtitle: "Integrate",
       cardContent: "May 2019 - Oct 2020",
+      hiddenContent:
+        "Work as part of our Data Insights team to build reporting and insights solutions for our customers. Built more usable reporting UI  as a React micro front end to help decrease average user time spent building reports down to 6 minutes from 16. Decreased page load time by up to 98%. Built components for internal React component library for faster development and a more unified platform. Contributed to efforts to increase unit and integration test coverage by 34%.",
     },
     {
       cardTitle: "PFS Reconciliation QA",
       cardSubtitle: "Banner Health",
       cardContent: "Oct 2014 - Oct 2018",
+      hiddenContent:
+        "Promoted to this role shortly after working with the Testing Team. I helped identify system issues to ensure timely resolution, and I also created training material and tools to help improve not just my department's performance, but performance across multiple departments.",
     },
   ];
 

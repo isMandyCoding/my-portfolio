@@ -1,8 +1,8 @@
 /** @jsxImportSource theme-ui */
 import React, { useState } from "react";
-import { ReactComponent as GitHubIcon } from "../svg/down-arrow.svg";
+import { keyframes } from "@emotion/react";
+import { ReactComponent as ArrowIcon } from "../svg/down-arrow.svg";
 import IconButton from "./IconButton";
-import StyleableSVG from "./StyleableSVG";
 
 export interface CardProps {
   cardTitle: string;
@@ -10,6 +10,24 @@ export interface CardProps {
   cardContent: string;
   hiddenContent?: string;
 }
+
+const rotateButton = keyframes({
+  from: {
+    transform: "none",
+  },
+  to: {
+    transform: "rotate(180deg)",
+  },
+});
+
+const expandHiddenContent = keyframes({
+  from: {
+    height: 0,
+  },
+  to: {
+    height: "9000px",
+  },
+});
 
 const Card = ({
   cardTitle,
@@ -30,14 +48,16 @@ const Card = ({
           display: "flex",
           flexDirection: "row",
           justifyContent: "center",
-          transition: "height 150ms",
+          transition: "all 150ms",
+          transform: revealHiddenContent ? "rotate(180deg)" : "none",
+          animation: revealHiddenContent
+            ? `${rotateButton} 150ms forwards`
+            : "none",
+          py: 2,
         }}
       >
         {hiddenContent ? (
-          <IconButton
-            onClick={handleExpandContentClick}
-            icon={<GitHubIcon />}
-          />
+          <IconButton onClick={handleExpandContentClick} icon={<ArrowIcon />} />
         ) : null}
       </div>
     );
@@ -84,10 +104,20 @@ const Card = ({
       </p>
       <div
         sx={{
-          display: revealHiddenContent ? "block" : "none",
+          maxHeight: revealHiddenContent ? "360px" : 0,
+          overflow: "hidden",
+          transition: "all 150ms",
         }}
       >
-        {hiddenContent}
+        <div
+          sx={{
+            animation: revealHiddenContent
+              ? `${expandHiddenContent} 500ms forwards`
+              : "none",
+          }}
+        >
+          {hiddenContent}
+        </div>
       </div>
       <ExpandContentButton />
     </div>
