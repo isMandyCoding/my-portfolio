@@ -1,9 +1,14 @@
 /** @jsxImportSource theme-ui */
 import React from "react";
 import PageHeading from "../components/PageHeading";
-import StyleableSVG from "../components/StyleableSVG";
 import { ReactComponent as JavaScriptIcon } from "../svg/java-script.svg";
 import { ReactComponent as ReactIcon } from "../svg/atom.svg";
+import { ReactComponent as NodeIcon } from "../svg/node-js.svg";
+import { ReactComponent as MongoDBIcon } from "../svg/leaf.svg";
+import { ReactComponent as SQLIcon } from "../svg/database.svg";
+import { ReactComponent as LaravelIcon } from "../svg/laravel_logo.svg";
+import { ReactComponent as GitIcon } from "../svg/git.svg";
+import SkillIcon from "../components/SkillIcon";
 
 const HomePage = () => {
   return (
@@ -12,17 +17,17 @@ const HomePage = () => {
         m: 4,
       }}
     >
-      <PageHeading headingText="Amanda Everett" />
-
-      <h2 sx={{ font: "body", opacity: 0.75 }}>Software Engineer</h2>
-      <p>
-        In 2018, I stumbled on my love for building tech solutions for manual
-        tasks at my medical billing job while exploring Excel and macro
-        solutions for repetitive calculations. What started as Excel tools I
-        shared with my coworkers to make our work more efficient soon developed
-        into a career change to become a Software Engineer. Now, I get to work
-        alongside incredibly talented people to create full-stack web solutions
-        for a much larger impact every day.
+      <PageHeading
+        headingText="Mandy Codes"
+        subHeadingText="Software Engineer"
+      />
+      <p
+        sx={{
+          marginBottom: 4,
+        }}
+      >
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
+        tempor incididunt ut labore et dolore magna aliqua.
       </p>
       <div
         sx={{
@@ -31,44 +36,13 @@ const HomePage = () => {
           gap: 3,
         }}
       >
-        <div
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-around",
-            alignItems: "center",
-          }}
-        >
-          <StyleableSVG svg={<JavaScriptIcon />} />
-          <p
-            sx={{
-              fontSize: 1,
-              my: 0,
-              color: "lightText",
-            }}
-          >
-            Javascript
-          </p>
-        </div>
-        <div
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "space-around",
-            alignItems: "center",
-          }}
-        >
-          <StyleableSVG svg={<ReactIcon />} />
-          <p
-            sx={{
-              fontSize: 1,
-              my: 0,
-              color: "lightText",
-            }}
-          >
-            React
-          </p>
-        </div>
+        <SkillIcon svg={<JavaScriptIcon />} skill="Javascript" />
+        <SkillIcon svg={<ReactIcon />} skill="React" />
+        <SkillIcon svg={<NodeIcon />} skill="NodeJS" />
+        <SkillIcon svg={<MongoDBIcon />} skill="MongoDB" />
+        <SkillIcon svg={<SQLIcon />} skill="SQL" />
+        <SkillIcon svg={<LaravelIcon />} skill="PHP/Laravel" />
+        <SkillIcon svg={<GitIcon />} skill="Git" />
       </div>
     </div>
   );

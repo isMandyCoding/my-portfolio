@@ -43,7 +43,7 @@ const NavBar = ({ sx, handleMenuOpen, menuOpen }: NavBarProps) => {
           display: ["none", "none", "block", "block"],
         }}
       >
-        <MainLinks />
+        <MainLinks menuOpen={menuOpen} />
       </div>
 
       <div

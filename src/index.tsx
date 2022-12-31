@@ -8,6 +8,7 @@ import ErrorPage from "./error-page";
 import HomePage from "./routes/HomePage";
 import ExperiencePage from "./routes/ExperiencePage";
 import ContactPage from "./routes/ContactPage";
+import ProjectsPage from "./routes/ProjectsPage";
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
       {
         path: "/contact",
         element: <ContactPage />,
+      },
+      {
+        path: "/projects",
+        element: <ProjectsPage />,
       },
     ],
   },

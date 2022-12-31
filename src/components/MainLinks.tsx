@@ -4,9 +4,10 @@ import NavBarLink from "./NavBarLink";
 
 export interface MainLinksProps {
   onMenuClose?: () => void;
+  menuOpen?: boolean;
 }
 
-const MainLinks = ({ onMenuClose }: MainLinksProps) => {
+const MainLinks = ({ onMenuClose, menuOpen }: MainLinksProps) => {
   const handleLinkClick = () => {
     if (onMenuClose) {
       onMenuClose();
@@ -24,13 +25,30 @@ const MainLinks = ({ onMenuClose }: MainLinksProps) => {
         overflow: "hidden",
       }}
     >
-      <NavBarLink onClick={handleLinkClick} to="/" text="About" />
       <NavBarLink
+        tabIndex={menuOpen ? 0 : -1}
+        onClick={handleLinkClick}
+        to="/"
+        text="About"
+      />
+      <NavBarLink
+        tabIndex={menuOpen ? 1 : -1}
         onClick={handleLinkClick}
         to="/experience"
         text="Experience"
       />
-      <NavBarLink onClick={handleLinkClick} to="/contact" text="Contact" />
+      <NavBarLink
+        tabIndex={menuOpen ? 2 : -1}
+        onClick={handleLinkClick}
+        to="/contact"
+        text="Contact"
+      />
+      <NavBarLink
+        tabIndex={menuOpen ? 3 : -1}
+        onClick={handleLinkClick}
+        to="/projects"
+        text="Projects"
+      />
     </ul>
   );
 };

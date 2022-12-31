@@ -35,10 +35,10 @@ const ContactPage = () => {
         m: 4,
       }}
     >
-      <PageHeading headingText="Contact Me" />
-      <h2 sx={{ font: "body", opacity: 0.75 }}>
-        I'm interested in new opportunities.
-      </h2>
+      <PageHeading
+        headingText="Contact Me"
+        subHeadingText="I'm interested in new opportunities."
+      />
       <form
         action="submit"
         id="contactForm"

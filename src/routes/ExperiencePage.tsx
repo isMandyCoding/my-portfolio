@@ -4,6 +4,7 @@ import Card from "../components/Card";
 import PageHeading from "../components/PageHeading";
 import Chips from "../components/Chips";
 import Cards from "../components/Cards";
+import SubHeading from "../components/SubHeading";
 
 const ExperiencePage = () => {
   const skills = [
@@ -61,14 +62,13 @@ const ExperiencePage = () => {
         m: 4,
       }}
     >
-      <PageHeading headingText="My Experience" />
-      <h2 sx={{ font: "body", opacity: 0.75 }}>Skills</h2>
+      <PageHeading headingText="My Experience" subHeadingText="Skills" />
       <div>
         <Chips chipList={skills} />
       </div>
-      <h2 sx={{ font: "body", opacity: 0.75 }}>Work History</h2>
+      <SubHeading subHeadingText="Work History" />
       <Cards cardList={jobHistory} />
-      <h2 sx={{ font: "body", opacity: 0.75 }}>Education</h2>
+      <SubHeading subHeadingText="Education" />
       <Cards cardList={education} />
       <a
         sx={{

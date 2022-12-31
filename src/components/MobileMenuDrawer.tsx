@@ -1,10 +1,5 @@
 /** @jsxImportSource theme-ui */
-import React, {
-  MouseEventHandler,
-  TouchEventHandler,
-  useEffect,
-  useState,
-} from "react";
+import React, { TouchEventHandler, useState } from "react";
 import ColorModeToggle from "./ColorModeToggle";
 import ContactLinks from "./ContactLinks";
 import IconButton from "./IconButton";
@@ -78,7 +73,7 @@ const MobileMenuDrawer = ({ isOpen, onMenuClose }: MobileMenuDrawerProps) => {
         <IconButton icon={<CloseIcon />} onClick={onMenuClose} />
       </div>
       <div>
-        <MainLinks onMenuClose={onMenuClose} />
+        <MainLinks menuOpen={isOpen} onMenuClose={onMenuClose} />
       </div>
       <div
         sx={{
