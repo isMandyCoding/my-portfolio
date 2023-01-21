@@ -1,12 +1,14 @@
 /** @jsxImportSource theme-ui */
-import React from "react";
-import Card from "../components/Card";
+import React, { HTMLAttributes } from "react";
 import PageHeading from "../components/PageHeading";
 import Chips from "../components/Chips";
 import Cards from "../components/Cards";
 import SubHeading from "../components/SubHeading";
+import { SxProp } from "theme-ui";
 
-const ExperiencePage = () => {
+type ExperiencePageProps = HTMLAttributes<HTMLDivElement> & SxProp;
+
+const ExperiencePage = (props: ExperiencePageProps) => {
   const skills = [
     "Javascript",
     "React",
@@ -57,12 +59,12 @@ const ExperiencePage = () => {
   ];
 
   return (
-    <div
-      sx={{
-        m: 4,
-      }}
-    >
-      <PageHeading headingText="My Experience" subHeadingText="Skills" />
+    <div className={props.className}>
+      <PageHeading
+        href="experience"
+        headingText="My Experience"
+        subHeadingText="Skills"
+      />
       <div>
         <Chips chipList={skills} />
       </div>
@@ -76,7 +78,7 @@ const ExperiencePage = () => {
           color: "secondary",
           my: 3,
         }}
-        href="#"
+        href="#resume"
         target="_blank"
       >
         Download my resume

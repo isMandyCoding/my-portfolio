@@ -1,21 +1,28 @@
 /** @jsxImportSource theme-ui */
-import React from "react";
 import SubHeading from "./SubHeading";
 
 export interface PageHeadingProps {
   headingText: string;
   subHeadingText?: string;
+  href?: string;
 }
 
-const PageHeading = ({ headingText, subHeadingText }: PageHeadingProps) => {
+const PageHeading = ({
+  headingText,
+  subHeadingText,
+  href,
+}: PageHeadingProps) => {
   const splitHeading = headingText.split(" ");
   const midIndex = Math.ceil(splitHeading.length / 2) - 1;
   const firstHalf = splitHeading.slice(0, midIndex + 1).join(" ");
   const secondHalf = splitHeading.slice(midIndex + 1).join(" ");
+
   return (
     <>
       <h1
+        id={`#${href}`}
         sx={{
+          paddingTop: 3,
           variant: "heading",
           position: "relative",
           paddingBottom: 3,

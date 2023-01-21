@@ -9,11 +9,13 @@ export interface TextAreaProps
 
 const TextArea = ({ label, ...props }: TextAreaProps) => {
   const [touched, setTouched] = useState(false);
+
   const handleBlur = () => {
     if (!touched) {
       setTouched(true);
     }
   };
+
   return (
     <div
       sx={{
@@ -52,6 +54,7 @@ const TextArea = ({ label, ...props }: TextAreaProps) => {
           transition: "150ms",
           color: "text",
           resize: "none",
+          fontSize: 2,
           "&:focus": {
             outline: "none",
             boxShadow: (theme) => `2px 2px 8px 0px ${theme.colors?.shadow}`,

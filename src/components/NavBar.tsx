@@ -1,21 +1,22 @@
 /** @jsxImportSource theme-ui */
-import React, { MouseEventHandler } from "react";
-import { ThemeUIStyleObject } from "theme-ui";
+import React, { HTMLAttributes, MouseEventHandler } from "react";
+import { SxProp } from "theme-ui";
 import MainLinks from "./MainLinks";
 import ColorModeToggle from "./ColorModeToggle";
 import ContactLinks from "./ContactLinks";
 import { ReactComponent as MenuIcon } from "../svg/square.svg";
 import IconButton from "./IconButton";
 
-export interface NavBarProps {
-  sx?: ThemeUIStyleObject | undefined;
-  handleMenuOpen: MouseEventHandler<HTMLButtonElement>;
-  menuOpen?: boolean;
-}
+export type NavBarProps = HTMLAttributes<HTMLElement> &
+  SxProp & {
+    handleMenuOpen: MouseEventHandler<HTMLButtonElement>;
+    menuOpen?: boolean;
+  };
 
-const NavBar = ({ sx, handleMenuOpen, menuOpen }: NavBarProps) => {
+const NavBar = ({ handleMenuOpen, menuOpen, className }: NavBarProps) => {
   return (
     <nav
+      className={className}
       sx={{
         mx: 2,
         display: "flex",
@@ -24,7 +25,6 @@ const NavBar = ({ sx, handleMenuOpen, menuOpen }: NavBarProps) => {
         alignContent: "center",
         alignItems: "center",
         height: "48px",
-        ...sx,
       }}
     >
       <div

@@ -1,15 +1,24 @@
 /** @jsxImportSource theme-ui */
 import React, { ReactElement } from "react";
-import StyleableSVG from "./StyleableSVG";
+import { SxProp } from "theme-ui";
+import StyleableSVG, { StyleableSVGProp } from "./StyleableSVG";
 
-export interface SkillIconProps {
-  svg: ReactElement;
-  skill: string;
-}
+export type SkillIconProps = React.HtmlHTMLAttributes<HTMLDivElement> &
+  SxProp & {
+    svg?: ReactElement;
+    skill: string;
+    styleableSvgProps?: StyleableSVGProp;
+  };
 
-const SkillIcon = ({ svg, skill }: SkillIconProps) => {
+const SkillIcon = ({
+  svg,
+  skill,
+  className,
+  styleableSvgProps,
+}: SkillIconProps) => {
   return (
     <div
+      className={className}
       sx={{
         display: "flex",
         flexDirection: "column",
@@ -17,7 +26,16 @@ const SkillIcon = ({ svg, skill }: SkillIconProps) => {
         alignItems: "center",
       }}
     >
-      <StyleableSVG svg={svg} />
+      <StyleableSVG
+        sx={{
+          svg: {
+            width: "40px",
+            height: "40px",
+          },
+        }}
+        {...styleableSvgProps}
+        svg={svg}
+      />
       <p
         sx={{
           fontSize: 1,

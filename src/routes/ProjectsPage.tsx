@@ -1,15 +1,15 @@
 /** @jsxImportSource theme-ui */
-import React from "react";
+import React, { HTMLAttributes } from "react";
+import { SxProp } from "theme-ui";
 import PageHeading from "../components/PageHeading";
 
-const ProjectsPage = () => {
+type ProjectsPageProps = HTMLAttributes<HTMLDivElement> & SxProp;
+
+const ProjectsPage = (props: ProjectsPageProps) => {
   return (
-    <div
-      sx={{
-        m: 4,
-      }}
-    >
+    <div className={props.className}>
       <PageHeading
+        href="projects"
         headingText="Projects Page"
         subHeadingText="Coming soon..."
       />

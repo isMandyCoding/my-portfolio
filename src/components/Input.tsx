@@ -1,6 +1,5 @@
 /** @jsxImportSource theme-ui */
-import React, { DetailedHTMLProps, useState } from "react";
-import { SxProp } from "theme-ui";
+import React, { useState } from "react";
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {

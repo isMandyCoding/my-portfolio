@@ -1,16 +1,13 @@
 /** @jsxImportSource theme-ui */
 import React, { LiHTMLAttributes } from "react";
-import { Link, useLocation } from "react-router-dom";
 
 export interface NavBarLinkProps extends LiHTMLAttributes<HTMLLIElement> {
   text: string;
   to: string;
 }
 
-const NavBarLink = ({ text, to, onClick, ...props }: NavBarLinkProps) => {
-  let location = useLocation();
-  const isActive = location.pathname === to;
-
+const NavBarLink = (props: NavBarLinkProps) => {
+  const { text, to, onClick } = props;
   return (
     <li
       sx={{
@@ -26,12 +23,13 @@ const NavBarLink = ({ text, to, onClick, ...props }: NavBarLinkProps) => {
         },
       }}
       onClick={onClick}
+      {...props}
     >
-      <Link
+      <a
         sx={{
           fontFamily: "body",
           fontSize: 3,
-          fontWeight: isActive ? "bold" : "normal",
+          fontWeight: true ? "bold" : "normal",
           color: "text",
           textDecoration: "none",
           py: 2,
@@ -39,13 +37,13 @@ const NavBarLink = ({ text, to, onClick, ...props }: NavBarLinkProps) => {
           display: "flex",
           alignItems: "center",
         }}
-        to={to}
+        href={to}
       >
         <span
           sx={{
             marginRight: 3,
             variant: "text.cursive",
-            color: isActive ? "secondary" : "primary",
+            color: true ? "secondary" : "primary",
           }}
         >
           {"</>"}
@@ -57,7 +55,7 @@ const NavBarLink = ({ text, to, onClick, ...props }: NavBarLinkProps) => {
         >
           {text}
         </span>
-      </Link>
+      </a>
     </li>
   );
 };

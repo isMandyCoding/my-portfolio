@@ -57,7 +57,6 @@ const MobileMenuDrawer = ({ isOpen, onMenuClose }: MobileMenuDrawerProps) => {
         width: ["100%", "80%", null, null],
         height: "100vh",
         overflow: "hidden",
-        minWidth: "260px",
       }}
       onTouchStart={onTouchStart}
       onTouchEnd={onTouchEnd}

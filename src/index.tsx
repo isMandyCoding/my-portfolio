@@ -9,37 +9,12 @@ import HomePage from "./routes/HomePage";
 import ExperiencePage from "./routes/ExperiencePage";
 import ContactPage from "./routes/ContactPage";
 import ProjectsPage from "./routes/ProjectsPage";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Root />,
-    errorElement: <ErrorPage />,
-    children: [
-      {
-        path: "/",
-        element: <HomePage />,
-      },
-      {
-        path: "/experience",
-        element: <ExperiencePage />,
-      },
-      {
-        path: "/contact",
-        element: <ContactPage />,
-      },
-      {
-        path: "/projects",
-        element: <ProjectsPage />,
-      },
-    ],
-  },
-]);
+import App from "./App";
 
 ReactDOM.createRoot(document.getElementById("root") as Element).render(
   <React.StrictMode>
     <ThemeProvider theme={theme}>
-      <RouterProvider router={router} />
+      <App />
     </ThemeProvider>
   </React.StrictMode>
 );

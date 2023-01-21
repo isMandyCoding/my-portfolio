@@ -1,11 +1,14 @@
 /** @jsxImportSource theme-ui */
-import React, { ChangeEventHandler, useState } from "react";
+import React, { ChangeEventHandler, HTMLAttributes, useState } from "react";
+import { SxProp } from "theme-ui";
 import Button from "../components/Button";
 import Input from "../components/Input";
 import PageHeading from "../components/PageHeading";
 import TextArea from "../components/TextArea";
 
-const ContactPage = () => {
+type ContactPageProps = HTMLAttributes<HTMLDivElement> & SxProp;
+
+const ContactPage = (props: ContactPageProps) => {
   const [contactEmail, setContactEmail] = useState("");
   const [contactName, setContactName] = useState("");
   const [messageSubject, setMessageSubject] = useState("");
@@ -30,12 +33,9 @@ const ContactPage = () => {
   };
 
   return (
-    <div
-      sx={{
-        m: 4,
-      }}
-    >
+    <div id="contactpage" className={props.className}>
       <PageHeading
+        href="contact"
         headingText="Contact Me"
         subHeadingText="I'm interested in new opportunities."
       />
@@ -95,7 +95,6 @@ const ContactPage = () => {
           label="Message"
           name="messageContent"
           id="messageContent"
-          cols={30}
           rows={10}
           value={messageContent}
           onChange={handleContentChange}

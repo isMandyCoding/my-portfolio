@@ -9,6 +9,7 @@ export interface MainLinksProps {
 
 const MainLinks = ({ onMenuClose, menuOpen }: MainLinksProps) => {
   const handleLinkClick = () => {
+    console.log("link clicked");
     if (onMenuClose) {
       onMenuClose();
     }
@@ -28,25 +29,25 @@ const MainLinks = ({ onMenuClose, menuOpen }: MainLinksProps) => {
       <NavBarLink
         tabIndex={menuOpen ? 0 : -1}
         onClick={handleLinkClick}
-        to="/"
+        to="#home"
         text="About"
       />
       <NavBarLink
         tabIndex={menuOpen ? 1 : -1}
         onClick={handleLinkClick}
-        to="/experience"
+        to="#experience"
         text="Experience"
       />
       <NavBarLink
         tabIndex={menuOpen ? 2 : -1}
         onClick={handleLinkClick}
-        to="/contact"
+        to="#contact"
         text="Contact"
       />
       <NavBarLink
         tabIndex={menuOpen ? 3 : -1}
         onClick={handleLinkClick}
-        to="/projects"
+        to="#projects"
         text="Projects"
       />
     </ul>

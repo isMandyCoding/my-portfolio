@@ -39,6 +39,11 @@ export const theme: Theme = {
       lineHeight: "heading",
       fontWeight: "heading",
     },
+    boxy: {
+      fontFamily: "body",
+      lineHeight: "body",
+      fontWeight: "body",
+    },
     cursive: {
       fontFamily: "'Beth Ellen', cursive",
       lineHeight: "body",

@@ -70,7 +70,6 @@ const Card = ({
         display: "flex",
         flexDirection: "column",
         flex: 1,
-        minWidth: "18rem",
         px: 4,
       }}
     >

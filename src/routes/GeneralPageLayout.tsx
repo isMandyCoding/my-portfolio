@@ -2,8 +2,14 @@
 import NavBar from "../components/NavBar";
 import { ReactComponent as FlowerIcon } from "../svg/daisy.svg";
 import { keyframes } from "@emotion/react";
-import { HTMLAttributes, MouseEventHandler, useState } from "react";
+import { HTMLAttributes, MouseEventHandler, useEffect, useState } from "react";
 import MobileMenuDrawer from "../components/MobileMenuDrawer";
+import HomePage from "./HomePage";
+import ExperiencePage from "./ExperiencePage";
+import ContactPage from "./ContactPage";
+import ProjectsPage from "./ProjectsPage";
+import { useHashFragment } from "../hooks/useHashFragment";
+import { useBreakpointIndex } from "@theme-ui/match-media";
 
 const fadeIn = keyframes({
   from: {
@@ -148,12 +154,27 @@ export default function GeneralPageLayout({
   children,
   ...props
 }: GeneralPageLayoutProps) {
+  const [motionPref, setMotionPref] = useState(false);
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion)");
+    console.log({ prefersReducedMotion });
+    if (prefersReducedMotion.matches) {
+      setMotionPref(true);
+    }
+
+    return () => {};
+  }, []);
+
+  const bpIndex = useBreakpointIndex();
+  const isScrollSmooth = bpIndex > 1 && !motionPref;
+  useHashFragment(80, isScrollSmooth);
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleMenuOpen: MouseEventHandler<HTMLButtonElement> = () => {
     setMenuOpen(true);
   };
   const handleMenuClose = () => {
+    console.log("Menu Close called");
     setMenuOpen(false);
   };
   return (
@@ -216,7 +237,7 @@ export default function GeneralPageLayout({
               width: "16rem",
               height: "8rem",
               padding: 1,
-              mx: 4,
+              mx: [2, 4],
             }}
           ></div>
         </header>
@@ -227,13 +248,10 @@ export default function GeneralPageLayout({
             gridTemplateColumns: ["1fr", "1fr", "1fr 1fr", "3fr 2fr"],
             gridTemplateRows: "1fr",
             gap: "20px",
-            px: 4,
             py: 0,
             mx: 0,
-            marginRight: [5, null, null, null, null],
-            minWidth: "320px",
             maskImage: (theme) =>
-              `linear-gradient(to bottom, ${theme.colors?.background} 80%, transparent 100%)`,
+              `linear-gradient(to bottom, ${theme.colors?.background} 85%, transparent 100%)`,
             overflowY: "scroll",
             maxHeight: "100%",
             scrollbarWidth: "none",
@@ -246,15 +264,36 @@ export default function GeneralPageLayout({
               animation: `${fadeIn} 1s forwards`,
               animationDelay: "2s",
               marginBottom: 3,
+              display: "grid",
+              gap: 4,
             }}
           >
-            {children}
+            <HomePage
+              sx={{
+                p: ["0 36px", "0 48px"],
+              }}
+            />
+            <ExperiencePage
+              sx={{
+                p: ["0 36px", "0 48px"],
+              }}
+            />
+            <ContactPage
+              sx={{
+                p: ["0 36px", "0 48px"],
+              }}
+            />
+            <ProjectsPage
+              sx={{
+                p: ["0 36px", "0 48px"],
+              }}
+            />
           </div>
         </main>
         <div
           id="bottomBar"
           sx={{
-            mx: 4,
+            mx: [2, 4],
             marginBottom: 5,
             px: 4,
             position: "relative",
@@ -262,7 +301,6 @@ export default function GeneralPageLayout({
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
-            minWidth: "320px",
           }}
         >
           <div
