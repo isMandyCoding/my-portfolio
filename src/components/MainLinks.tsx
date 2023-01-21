@@ -9,7 +9,6 @@ export interface MainLinksProps {
 
 const MainLinks = ({ onMenuClose, menuOpen }: MainLinksProps) => {
   const handleLinkClick = () => {
-    console.log("link clicked");
     if (onMenuClose) {
       onMenuClose();
     }

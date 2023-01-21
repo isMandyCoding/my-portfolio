@@ -157,12 +157,9 @@ export default function GeneralPageLayout({
   const [motionPref, setMotionPref] = useState(false);
   useEffect(() => {
     const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion)");
-    console.log({ prefersReducedMotion });
     if (prefersReducedMotion.matches) {
       setMotionPref(true);
     }
-
-    return () => {};
   }, []);
 
   const bpIndex = useBreakpointIndex();
@@ -174,7 +171,6 @@ export default function GeneralPageLayout({
     setMenuOpen(true);
   };
   const handleMenuClose = () => {
-    console.log("Menu Close called");
     setMenuOpen(false);
   };
   return (
