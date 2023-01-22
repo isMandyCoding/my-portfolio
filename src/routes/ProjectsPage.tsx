@@ -11,7 +11,7 @@ const ProjectsPage = (props: ProjectsPageProps) => {
       <PageHeading
         href="projects"
         headingText="Projects Page"
-        subHeadingText="Coming soon..."
+        subHeadingText="Some things I've built"
       />
     </div>
   );
