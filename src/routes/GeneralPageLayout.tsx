@@ -8,7 +8,7 @@ import HomePage from "./HomePage";
 import ExperiencePage from "./ExperiencePage";
 import ContactPage from "./ContactPage";
 import ProjectsPage from "./ProjectsPage";
-import { useHashFragment } from "../hooks/useHashFragment";
+import { useHashFragment } from "../common/hooks/useHashFragment";
 import { useBreakpointIndex } from "@theme-ui/match-media";
 
 const fadeIn = keyframes({

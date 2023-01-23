@@ -1,6 +1,13 @@
 /** @jsxImportSource theme-ui */
-import React, { ChangeEventHandler, HTMLAttributes, useState } from "react";
+import axios from "axios";
+import React, {
+  ChangeEventHandler,
+  FormEventHandler,
+  HTMLAttributes,
+  useState,
+} from "react";
 import { SxProp } from "theme-ui";
+import AppAxios from "../common/utils/AppAxios";
 import Button from "../components/Button";
 import Input from "../components/Input";
 import PageHeading from "../components/PageHeading";
@@ -32,6 +39,26 @@ const ContactPage = (props: ContactPageProps) => {
     setMessageContent(event.currentTarget.value);
   };
 
+  const handleFormSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
+    e.preventDefault();
+    console.log("For submitted");
+    console.log(e);
+    const formData = {
+      email: contactEmail,
+      name: contactName,
+      subject: messageSubject,
+      content: messageContent,
+    };
+    console.log(formData);
+    try {
+      // const authentication = await AppAxios.get("/sanctum/csrf-cookie");
+      const result = await AppAxios.post("test", formData);
+      console.log(result);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div id="contactpage" className={props.className}>
       <PageHeading
@@ -47,6 +74,7 @@ const ContactPage = (props: ContactPageProps) => {
           flexDirection: "column",
           gap: 2,
         }}
+        onSubmit={handleFormSubmit}
       >
         <div
           sx={{
