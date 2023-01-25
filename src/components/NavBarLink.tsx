@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 import React, { LiHTMLAttributes } from "react";
 
-export interface NavBarLinkProps extends LiHTMLAttributes<HTMLLIElement> {
+export interface NavBarLinkProps extends LiHTMLAttributes<HTMLAnchorElement> {
   text: string;
   to: string;
 }
@@ -22,10 +22,9 @@ const NavBarLink = (props: NavBarLinkProps) => {
           },
         },
       }}
-      onClick={onClick}
-      {...props}
-    >
+      >
       <a
+        onClick={onClick}
         sx={{
           fontFamily: "body",
           fontSize: 3,
