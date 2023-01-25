@@ -28,7 +28,7 @@ const MainLinks = ({ onMenuClose, menuOpen }: MainLinksProps) => {
       <NavBarLink
         tabIndex={menuOpen ? 0 : -1}
         onClick={handleLinkClick}
-        to="#home"
+        to="#about"
         text="About"
       />
       <NavBarLink

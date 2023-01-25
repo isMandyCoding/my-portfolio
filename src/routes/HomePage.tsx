@@ -19,7 +19,7 @@ const HomePage = (props: HomePageProps) => {
   return (
     <div className={props.className}>
       <PageHeading
-        href="home"
+        href="about"
         headingText="Mandy Codes"
         subHeadingText="Software Engineer"
       />
