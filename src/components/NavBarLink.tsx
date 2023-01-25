@@ -37,8 +37,6 @@ const NavBarLink = (props: NavBarLinkProps) => {
           alignItems: "center",
         }}
         href={to}
-        data-cy={text}
-
       >
         <span
           sx={{
