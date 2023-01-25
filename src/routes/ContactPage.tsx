@@ -1,12 +1,12 @@
 /** @jsxImportSource theme-ui */
-import axios from "axios";
 import React, {
   ChangeEventHandler,
   FormEventHandler,
   HTMLAttributes,
+  useEffect,
   useState,
 } from "react";
-import { SxProp } from "theme-ui";
+import { SxProp, useColorMode } from "theme-ui";
 import AppAxios from "../common/utils/AppAxios";
 import Button from "../components/Button";
 import Input from "../components/Input";
@@ -16,10 +16,14 @@ import TextArea from "../components/TextArea";
 type ContactPageProps = HTMLAttributes<HTMLDivElement> & SxProp;
 
 const ContactPage = (props: ContactPageProps) => {
+  const [colorMode] = useColorMode();
   const [contactEmail, setContactEmail] = useState("");
   const [contactName, setContactName] = useState("");
   const [messageSubject, setMessageSubject] = useState("");
   const [messageContent, setMessageContent] = useState("");
+  const [email, setEmail] = useState("");
+  const [filloutTime, setFilloutTime] = useState(0);
+  const [startedFillingOut, setStartedFillingOut] = useState(false);
 
   const handleEmailChange: ChangeEventHandler<HTMLInputElement> = (event) => {
     setContactEmail(event.currentTarget.value);
@@ -39,28 +43,52 @@ const ContactPage = (props: ContactPageProps) => {
     setMessageContent(event.currentTarget.value);
   };
 
+  const handleEmailClick: ChangeEventHandler<HTMLInputElement> = (event) => {
+    setEmail(event.currentTarget.value);
+  };
+
   const handleFormSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
     console.log("For submitted");
     console.log(e);
     const formData = {
-      email: contactEmail,
-      name: contactName,
-      subject: messageSubject,
-      content: messageContent,
+      email: contactEmail.trim(),
+      name: contactName.trim(),
+      subject: messageSubject.trim(),
+      content: messageContent.trim(),
+      website: email, // honeypot
+      colorMode: colorMode,
+      formTime: filloutTime,
     };
     console.log(formData);
     try {
-      // const authentication = await AppAxios.get("/sanctum/csrf-cookie");
-      const result = await AppAxios.post("test", formData);
-      console.log(result);
+      // const result = await AppAxios.post("contact", formData);
+      // console.log(result);
+      console.log("Send email");
     } catch (error) {
       console.log(error);
     }
   };
 
+  const handleFormChange = () => {
+    if (!startedFillingOut) {
+      setStartedFillingOut(true);
+    }
+  };
+  useEffect(() => {
+    let interval: null | NodeJS.Timer = null;
+    if (startedFillingOut) {
+      interval = setInterval(() => {
+        setFilloutTime((seconds) => seconds + 1);
+      }, 1000);
+    } else if (!startedFillingOut && filloutTime !== 0 && interval) {
+      clearInterval(interval);
+    }
+    return () => clearInterval(interval ?? undefined);
+  }, [startedFillingOut, filloutTime]);
+
   return (
-    <div id="contactpage" className={props.className}>
+    <section id="contactpage" className={props.className}>
       <PageHeading
         href="contact"
         headingText="Contact Me"
@@ -75,6 +103,7 @@ const ContactPage = (props: ContactPageProps) => {
           gap: 2,
         }}
         onSubmit={handleFormSubmit}
+        onChange={handleFormChange}
       >
         <div
           sx={{
@@ -118,6 +147,17 @@ const ContactPage = (props: ContactPageProps) => {
           value={messageSubject}
           onChange={handleSubjectChange}
         />
+        <Input
+          label="Email"
+          type="text"
+          name="email"
+          id="email"
+          value={email}
+          tabIndex={-1}
+          autoComplete="off"
+          onChange={handleEmailClick}
+          isHoneypot
+        />
         <TextArea
           required
           label="Message"
@@ -136,7 +176,7 @@ const ContactPage = (props: ContactPageProps) => {
           <Button type="submit">Submit</Button>
         </div>
       </form>
-    </div>
+    </section>
   );
 };
 

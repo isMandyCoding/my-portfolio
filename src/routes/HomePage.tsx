@@ -17,7 +17,7 @@ type HomePageProps = HTMLAttributes<HTMLDivElement> & SxProp;
 
 const HomePage = (props: HomePageProps) => {
   return (
-    <div className={props.className}>
+    <section className={props.className}>
       <PageHeading
         href="home"
         headingText="Mandy Codes"
@@ -58,7 +58,7 @@ const HomePage = (props: HomePageProps) => {
           }}
         />
       </div>
-    </div>
+    </section>
   );
 };
 

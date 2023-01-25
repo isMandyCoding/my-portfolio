@@ -8,7 +8,7 @@ const AppAxios = axios.create({
     'Content-Type': 'application/json'
   },
   withCredentials: true,
-  timeout: 3000,
+  timeout: 10000,
 });
 
 const interceptMethods = ['post', 'put', 'delete'];
