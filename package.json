@@ -47,6 +47,6 @@
     ]
   },
   "devDependencies": {
-    "@types/js-cookie": "^3.0.2"
+    "cypress": "^12.4.0"
   }
 }

@@ -11,142 +11,6 @@ import ProjectsPage from "./ProjectsPage";
 import { useHashFragment } from "../common/hooks/useHashFragment";
 import { useBreakpointIndex } from "@theme-ui/match-media";
 
-const fadeIn = keyframes({
-  from: {
-    opacity: 0,
-    height: 0,
-    overflow: "hidden",
-  },
-  to: {
-    opacity: 1,
-    height: "100%",
-    overflow: "visible",
-  },
-});
-
-const twirl = keyframes({
-  from: {
-    transform: "rotate(0deg)",
-    opacity: 0,
-    position: "absolute",
-    bottom: "38vh",
-    width: "112px",
-    height: "112px",
-  },
-  to: {
-    transform: "rotate(360deg)",
-    opacity: 1,
-    position: "absolute",
-    bottom: "38vh",
-    width: "112px",
-    height: "112px",
-  },
-});
-
-const lowerFlower = keyframes`
-from {
-  position: absolute;
-  bottom: 38vh;
-  transform: rotate(0deg);
-  width: 112px;
-  height: 112px;
-}
-30% {
-  position: absolute;
-  bottom: 41vh;
-  transform: rotate(90deg);
-  width: 112px;
-  height: 112px;
-}
-to {
-  position: absolute;
-  bottom: 2vh;
-  transform: rotate(0deg);
-  width: 50px;
-  height: 50px;
-}
-`;
-
-const fadeInTopBorder = keyframes({
-  from: {
-    position: "absolute",
-    marginTop: "20vh",
-    marginLeft: "25%",
-    width: "6rem",
-    height: "4rem",
-    opacity: 0,
-  },
-  to: {
-    position: "absolute",
-    marginTop: "20vh",
-    marginLeft: "25%",
-    width: "6rem",
-    height: "4rem",
-    opacity: 1,
-  },
-});
-
-const expandTopLeftBorder = keyframes`
-from {
-  position: absolute;
-  margin-top: 20vh;
-  margin-left: 25%;
-  width: 6rem;
-  height: 4rem;
-}
-30% {
-  position: absolute;
-  margin-top: 25vh;
-  margin-left: 25%;
-  width: 6rem;
-  height: 4rem;
-
-}
-to {
-  position: absolute;
-  top: 80px
-  margin-left: 32px;
-  width: 16rem;
-  height: 8rem;
-}`;
-
-const fadeInBottomBorder = keyframes({
-  from: {
-    marginBottom: "55vh",
-    marginRight: "25%",
-    width: "6rem",
-    height: "4rem",
-    opacity: 0,
-  },
-  to: {
-    marginBottom: "55vh",
-    marginRight: "25%",
-    width: "6rem",
-    height: "4rem",
-    opacity: 1,
-  },
-});
-
-const expandBottomRightBorder = keyframes`
-from {
-  margin-bottom: 55vh;
-  margin-right: 25%;
-  width: 6rem;
-  height: 4rem;
-}
-30% {
-  margin-bottom: 60vh;
-  margin-right: 25%;
-  width: 6rem;
-  height: 4rem;
-}
-to {
-  margin-bottom: 32px;
-  margin-right: 8px;
-  width: 16rem;
-  height: 8rem;
-}`;
-
 export interface GeneralPageLayoutProps
   extends HTMLAttributes<HTMLDivElement> {}
 
@@ -207,22 +71,12 @@ export default function GeneralPageLayout({
             sx={{
               position: "relative",
               my: 3,
-              opacity: 0,
-              animation: `${fadeIn} 1s forwards`,
-              animationDelay: "2s",
             }}
           >
             <NavBar handleMenuOpen={handleMenuOpen} menuOpen={menuOpen} />
           </div>
           <div
             sx={{
-              animationName: `${fadeInTopBorder}, ${expandTopLeftBorder}`,
-              animationDuration: `1s, 1s`,
-              animationDirection: `forwards, forwards`,
-              animationDelay: `0s, 1s`,
-              "@media (prefers-reduced-motion)": {
-                animation: `${fadeIn} 1s forwards`,
-              },
               position: "absolute",
               top: "80px",
               left: 0,
@@ -256,9 +110,6 @@ export default function GeneralPageLayout({
         >
           <div
             sx={{
-              opacity: 0,
-              animation: `${fadeIn} 1s forwards`,
-              animationDelay: "2s",
               marginBottom: 3,
               display: "grid",
               gap: 4,
@@ -305,13 +156,6 @@ export default function GeneralPageLayout({
               justifyContent: "center",
               width: "50px",
               height: "50px",
-              animationName: `${twirl}, ${lowerFlower}`,
-              animationDuration: `1s, 1s`,
-              animationDirection: `forwards, forwards`,
-              animationDelay: `0s, 1s`,
-              "@media (prefers-reduced-motion)": {
-                animation: `${fadeIn} 1s forwards`,
-              },
               svg: {
                 marginBottom: 2,
 
@@ -348,13 +192,6 @@ export default function GeneralPageLayout({
               mx: 2,
               borderBottom: (theme) => `1px solid ${theme?.colors?.accent}`,
               borderRight: (theme) => `1px solid ${theme?.colors?.accent}`,
-              animationName: `${fadeInBottomBorder}, ${expandBottomRightBorder}`,
-              animationDuration: `1s, 1s`,
-              animationDirection: `forwards, forwards`,
-              animationDelay: `0s, 1s`,
-              "@media (prefers-reduced-motion)": {
-                animation: `${fadeIn} 1s forwards`,
-              },
               width: "16rem",
               height: "8rem",
             }}
