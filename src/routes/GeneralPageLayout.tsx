@@ -1,14 +1,13 @@
 /** @jsxImportSource theme-ui */
 import NavBar from "../components/NavBar";
 import { ReactComponent as FlowerIcon } from "../svg/daisy.svg";
-import { keyframes } from "@emotion/react";
 import { HTMLAttributes, MouseEventHandler, useEffect, useState } from "react";
 import MobileMenuDrawer from "../components/MobileMenuDrawer";
 import HomePage from "./HomePage";
 import ExperiencePage from "./ExperiencePage";
 import ContactPage from "./ContactPage";
 import ProjectsPage from "./ProjectsPage";
-import { useHashFragment } from "../hooks/useHashFragment";
+import { useHashFragment } from "../common/hooks/useHashFragment";
 import { useBreakpointIndex } from "@theme-ui/match-media";
 
 export interface GeneralPageLayoutProps

@@ -59,7 +59,7 @@ const ExperiencePage = (props: ExperiencePageProps) => {
   ];
 
   return (
-    <div className={props.className}>
+    <section className={props.className}>
       <PageHeading
         href="experience"
         headingText="My Experience"
@@ -83,7 +83,7 @@ const ExperiencePage = (props: ExperiencePageProps) => {
       >
         Download my resume
       </a>
-    </div>
+    </section>
   );
 };
 

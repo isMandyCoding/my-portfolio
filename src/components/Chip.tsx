@@ -1,6 +1,5 @@
 /** @jsxImportSource theme-ui */
 import React from "react";
-import { SxProp } from "theme-ui";
 
 export interface ChipProps {
   text: string;

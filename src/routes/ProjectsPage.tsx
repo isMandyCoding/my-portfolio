@@ -7,13 +7,13 @@ type ProjectsPageProps = HTMLAttributes<HTMLDivElement> & SxProp;
 
 const ProjectsPage = (props: ProjectsPageProps) => {
   return (
-    <div className={props.className}>
+    <section className={props.className}>
       <PageHeading
         href="projects"
         headingText="Projects Page"
         subHeadingText="Coming soon..."
       />
-    </div>
+    </section>
   );
 };
 
