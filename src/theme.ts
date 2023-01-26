@@ -2,7 +2,7 @@ import type { Theme } from "theme-ui";
 
 export const theme: Theme = {
   fonts: {
-    body: "Space Mono, monospace",
+    body: '"Space Mono", monospace',
     heading: '"IBM Plex Mono", monospace',
     monospace: '"Space Mono", monospace',
     cursive: "'Beth Ellen', cursive",

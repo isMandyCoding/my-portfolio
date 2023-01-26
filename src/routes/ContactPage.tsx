@@ -4,8 +4,10 @@ import React, {
   FormEventHandler,
   HTMLAttributes,
   useEffect,
+  useRef,
   useState,
 } from "react";
+import { toast } from "react-toastify";
 import { SxProp, useColorMode } from "theme-ui";
 import AppAxios from "../common/utils/AppAxios";
 import Button from "../components/Button";
@@ -22,8 +24,8 @@ const ContactPage = (props: ContactPageProps) => {
   const [messageSubject, setMessageSubject] = useState("");
   const [messageContent, setMessageContent] = useState("");
   const [email, setEmail] = useState("");
-  const [filloutTime, setFilloutTime] = useState(0);
   const [startedFillingOut, setStartedFillingOut] = useState(false);
+  const filloutTime = useRef(0);
 
   const handleEmailChange: ChangeEventHandler<HTMLInputElement> = (event) => {
     setContactEmail(event.currentTarget.value);
@@ -49,8 +51,6 @@ const ContactPage = (props: ContactPageProps) => {
 
   const handleFormSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    console.log("For submitted");
-    console.log(e);
     const formData = {
       email: contactEmail.trim(),
       name: contactName.trim(),
@@ -58,15 +58,21 @@ const ContactPage = (props: ContactPageProps) => {
       content: messageContent.trim(),
       website: email, // honeypot
       colorMode: colorMode,
-      formTime: filloutTime,
+      formTime: filloutTime.current,
     };
-    console.log(formData);
     try {
-      // const result = await AppAxios.post("contact", formData);
-      // console.log(result);
-      console.log("Send email");
+      await AppAxios.post("/contact", formData);
+      setStartedFillingOut(false);
+      toast.success("Success! You should receive a confirmation email shortly.", {
+        position: toast.POSITION.BOTTOM_LEFT,
+        theme: colorMode ===  "dark" ? colorMode : "light"
+      });
     } catch (error) {
-      console.log(error);
+      toast.error("There was an error sending your contact info. Please try again.", {
+        position: toast.POSITION.BOTTOM_LEFT,
+        theme: colorMode ===  "dark" ? colorMode : "light"
+        
+      });
     }
   };
 
@@ -79,9 +85,9 @@ const ContactPage = (props: ContactPageProps) => {
     let interval: null | NodeJS.Timer = null;
     if (startedFillingOut) {
       interval = setInterval(() => {
-        setFilloutTime((seconds) => seconds + 1);
+        filloutTime.current = filloutTime.current + 1;
       }, 1000);
-    } else if (!startedFillingOut && filloutTime !== 0 && interval) {
+    } else if (!startedFillingOut && filloutTime.current !== 0 && interval) {
       clearInterval(interval);
     }
     return () => clearInterval(interval ?? undefined);
@@ -165,8 +171,20 @@ const ContactPage = (props: ContactPageProps) => {
           id="messageContent"
           rows={10}
           value={messageContent}
+          minLength={1}
+          maxLength={500}
           onChange={handleContentChange}
         ></TextArea>
+        <p
+          sx={{
+            fontSize: "0.75rem",
+            my: 0,
+            paddingLeft: 2,
+            opacity: 0.75,
+          }}
+        >
+          Max length 500 characters
+        </p>
         <div
           sx={{
             display: "flex",

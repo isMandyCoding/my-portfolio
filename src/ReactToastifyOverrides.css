@@ -1,0 +1,48 @@
+:root {
+  --toastify-color-light: #faf0d3;
+  --toastify-color-dark: #004369;
+  --toastify-color-info: #01949a;
+  --toastify-color-success: #00c2cb;
+  --toastify-color-warning: #e2ce81;
+  --toastify-color-error: #ff5757;
+  --toastify-color-transparent: rgba(255, 255, 255, 0.7);
+
+  --toastify-icon-color-info: var(--toastify-color-info);
+  --toastify-icon-color-success: var(--toastify-color-success);
+  --toastify-icon-color-warning: var(--toastify-color-warning);
+  --toastify-icon-color-error: var(--toastify-color-error);
+
+  --toastify-toast-width: 320px;
+  --toastify-toast-background: #fff;
+  --toastify-toast-min-height: 64px;
+  --toastify-toast-max-height: 800px;
+  --toastify-font-family: Space Mono, monospace;
+  --toastify-z-index: 9999;
+
+  --toastify-text-color-light: #004369;
+  --toastify-text-color-dark: #faf0d3;
+
+  --toastify-text-color-info: #fff;
+  --toastify-text-color-success: #fff;
+  --toastify-text-color-warning: #fff;
+  --toastify-text-color-error: #fff;
+
+  --toastify-spinner-color: #616161;
+  --toastify-spinner-color-empty-area: #e0e0e0;
+
+  --toastify-color-progress-light: linear-gradient(
+    to right,
+    #ff5757,
+    #34aadc,
+    #004369,
+    #34aadc,
+    #00c2cb,
+    #faf0d3
+  );
+
+  --toastify-color-progress-dark: var(--toastify-text-color-dark);
+  --toastify-color-progress-info: var(--toastify-color-info);
+  --toastify-color-progress-success: var(--toastify-color-success);
+  --toastify-color-progress-warning: var(--toastify-color-warning);
+  --toastify-color-progress-error: var(--toastify-color-error);
+}
