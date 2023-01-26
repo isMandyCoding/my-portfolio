@@ -67,6 +67,7 @@ const ContactPage = (props: ContactPageProps) => {
         position: toast.POSITION.BOTTOM_LEFT,
         theme: colorMode ===  "dark" ? colorMode : "light"
       });
+      filloutTime.current = 0;
     } catch (error) {
       toast.error("There was an error sending your contact info. Please try again.", {
         position: toast.POSITION.BOTTOM_LEFT,

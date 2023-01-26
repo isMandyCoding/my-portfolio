@@ -31,21 +31,20 @@ const Input = ({ labelProps, label, isHoneypot, ...props }: InputProps) => {
         },
       }}
     >
-      {isHoneypot ? null : (
-        <label
-          htmlFor={props.id}
-          sx={{
-            position: "absolute",
-            top: props.value ? "-1.9rem" : 0,
-            fontSize: props.value ? 1 : "body",
-            transition: "all 150ms",
-            py: 2,
-            px: 3,
-          }}
-        >
-          {label}
-        </label>
-      )}
+      <label
+        htmlFor={props.id}
+        sx={{
+          position: "absolute",
+          display: isHoneypot ? "none" : "flex",
+          top: props.value ? "-1.9rem" : 0,
+          fontSize: props.value ? 1 : "body",
+          transition: "all 150ms",
+          py: 2,
+          px: 3,
+        }}
+      >
+        {label}
+      </label>
       <input
         {...props}
         sx={{
