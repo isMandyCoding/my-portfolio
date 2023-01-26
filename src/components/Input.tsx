@@ -6,9 +6,10 @@ export interface InputProps
   labelProps?: React.LabelHTMLAttributes<HTMLLabelElement>;
   value: any;
   label: string;
+  isHoneypot?: boolean;
 }
 
-const Input = ({ labelProps, label, ...props }: InputProps) => {
+const Input = ({ labelProps, label, isHoneypot, ...props }: InputProps) => {
   const [touched, setTouched] = useState(false);
   const handleBlur = () => {
     if (!touched) {
@@ -18,11 +19,11 @@ const Input = ({ labelProps, label, ...props }: InputProps) => {
   return (
     <div
       sx={{
-        display: "flex",
+        display: isHoneypot ? "none" : "flex",
         flexDirection: "column",
         position: "relative",
         transition: "all 150ms",
-        my: 2,
+        my: isHoneypot ? 0 : 2,
         "&:focus-within label": {
           fontSize: 1,
           top: "-1.9rem",
@@ -34,6 +35,7 @@ const Input = ({ labelProps, label, ...props }: InputProps) => {
         htmlFor={props.id}
         sx={{
           position: "absolute",
+          display: isHoneypot ? "none" : "flex",
           top: props.value ? "-1.9rem" : 0,
           fontSize: props.value ? 1 : "body",
           transition: "all 150ms",
@@ -46,6 +48,7 @@ const Input = ({ labelProps, label, ...props }: InputProps) => {
       <input
         {...props}
         sx={{
+          display: isHoneypot ? "none" : "inherit",
           border: (theme) => `1px solid ${theme.colors?.text}`,
           px: 2,
           py: 3,
