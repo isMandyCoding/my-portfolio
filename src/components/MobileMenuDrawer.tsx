@@ -7,6 +7,7 @@ import MainLinks from "./MainLinks";
 import { ReactComponent as CloseIcon } from "../svg/close.svg";
 import Divider from "./Divider";
 import Link from "./Link";
+import Resume from "../MandyCodesResume.pdf";
 
 export interface MobileMenuDrawerProps {
   isOpen: boolean;
@@ -89,11 +90,7 @@ const MobileMenuDrawer = ({ isOpen, onMenuClose }: MobileMenuDrawerProps) => {
             px: 1,
           }}
         >
-          <Link
-            href="./MandyCodesResume.pdf"
-            title="Download Resume"
-            download={true}
-          >
+          <Link href={Resume} title="Download Resume" download={true}>
             Download My Resume
           </Link>
         </div>
@@ -112,11 +109,7 @@ const MobileMenuDrawer = ({ isOpen, onMenuClose }: MobileMenuDrawerProps) => {
           }}
         >
           <li>
-            <Link
-              href="./MandyCodesResume.pdf"
-              title="Download Resume"
-              download={true}
-            >
+            <Link href={Resume} title="Download Resume" download={true}>
               Download My Resume
             </Link>
           </li>
