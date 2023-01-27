@@ -1,5 +1,6 @@
 /** @jsxImportSource theme-ui */
-import React, { LiHTMLAttributes } from "react";
+import React, { LiHTMLAttributes, useState, useEffect } from "react";
+import { useHashFragment } from "../common/hooks/useHashFragment";
 
 export interface NavBarLinkProps extends LiHTMLAttributes<HTMLAnchorElement> {
   text: string;
@@ -8,6 +9,18 @@ export interface NavBarLinkProps extends LiHTMLAttributes<HTMLAnchorElement> {
 
 const NavBarLink = (props: NavBarLinkProps) => {
   const { text, to, onClick } = props;
+
+  const [motionPref, setMotionPref] = useState(false);
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion)");
+    if (prefersReducedMotion.matches) {
+      setMotionPref(true);
+    }
+  }, []);
+
+  const isScrollSmooth = !motionPref;
+  const currentHash = useHashFragment(80, isScrollSmooth);
+
   return (
     <li
       sx={{
@@ -22,7 +35,7 @@ const NavBarLink = (props: NavBarLinkProps) => {
           },
         },
       }}
-      >
+    >
       <a
         onClick={onClick}
         sx={{
@@ -31,8 +44,7 @@ const NavBarLink = (props: NavBarLinkProps) => {
           fontWeight: true ? "bold" : "normal",
           color: "text",
           textDecoration: "none",
-          py: 2,
-          px: 3,
+          px: 2,
           display: "flex",
           alignItems: "center",
         }}
@@ -42,7 +54,7 @@ const NavBarLink = (props: NavBarLinkProps) => {
           sx={{
             marginRight: 3,
             variant: "text.cursive",
-            color: true ? "secondary" : "primary",
+            color: currentHash === to ? "secondary" : "primary",
           }}
         >
           {"</>"}

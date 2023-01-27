@@ -6,6 +6,7 @@ import IconButton from "./IconButton";
 import MainLinks from "./MainLinks";
 import { ReactComponent as CloseIcon } from "../svg/close.svg";
 import Divider from "./Divider";
+import Link from "./Link";
 
 export interface MobileMenuDrawerProps {
   isOpen: boolean;
@@ -46,14 +47,15 @@ const MobileMenuDrawer = ({ isOpen, onMenuClose }: MobileMenuDrawerProps) => {
         display: ["block", "block", "none", "none"],
         transition: "150ms",
         position: "absolute",
-        left: 0,
+        right: 0,
         top: 0,
         bg: "background",
         p: 4,
+        padding: "16px 16px 32px 32px",
         boxShadow: isOpen
           ? (theme) => `0px 0 16px 0px ${theme?.colors?.textLight}`
           : "none",
-        transform: isOpen ? "translateX(0)" : "translateX(-100%)",
+        transform: isOpen ? "translateX(0)" : "translateX(100%)",
         width: ["100%", "80%", null, null],
         height: "100vh",
         overflow: "hidden",
@@ -65,8 +67,9 @@ const MobileMenuDrawer = ({ isOpen, onMenuClose }: MobileMenuDrawerProps) => {
     >
       <div
         sx={{
-          my: 2,
-          px: 2,
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "flex-end",
         }}
       >
         <IconButton icon={<CloseIcon />} onClick={onMenuClose} />
@@ -76,10 +79,24 @@ const MobileMenuDrawer = ({ isOpen, onMenuClose }: MobileMenuDrawerProps) => {
       </div>
       <div
         sx={{
-          display: ["block", "none", "none", "none"],
+          display: ["block", "block", "none", "none"],
         }}
       >
         <Divider />
+        <div
+          sx={{
+            display: ["none", "flex", "none"],
+            px: 1,
+          }}
+        >
+          <Link
+            href="./MandyCodesResume.pdf"
+            title="Download Resume"
+            download={true}
+          >
+            Download My Resume
+          </Link>
+        </div>
       </div>
       <div>
         <ul
@@ -91,20 +108,22 @@ const MobileMenuDrawer = ({ isOpen, onMenuClose }: MobileMenuDrawerProps) => {
             display: ["flex", "none", "none", "none"],
             flexDirection: ["column", "column", "row", "row"],
             justifyContent: "space-between",
+            gap: 4,
           }}
         >
-          <li
-            sx={{
-              my: 2,
-            }}
-          >
+          <li>
+            <Link
+              href="./MandyCodesResume.pdf"
+              title="Download Resume"
+              download={true}
+            >
+              Download My Resume
+            </Link>
+          </li>
+          <li>
             <ColorModeToggle />
           </li>
-          <li
-            sx={{
-              my: 2,
-            }}
-          >
+          <li>
             <ContactLinks />
           </li>
         </ul>
