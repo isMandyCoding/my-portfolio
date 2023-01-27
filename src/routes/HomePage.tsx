@@ -14,7 +14,7 @@ import { HTMLAttributes } from "react";
 import { SxProp } from "theme-ui";
 import Button from "../components/Button";
 import Link from "../components/Link";
-import Resume from "../MandyCodesResume.pdf";
+import DownloadResumeLink from "../components/DownloadResumeLink";
 
 type HomePageProps = HTMLAttributes<HTMLDivElement> & SxProp;
 
@@ -43,11 +43,10 @@ const HomePage = (props: HomePageProps) => {
         >
           React
         </Link>
-        . In a hurry?{" "}
-        <Link href={Resume} title="Download Resume" download={true}>
-          Download My Resume
-        </Link>{" "}
-        for later.
+        {"."}
+        <p>
+          In a hurry? <DownloadResumeLink /> for later.
+        </p>
       </p>
       <div
         sx={{
