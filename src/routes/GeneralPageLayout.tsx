@@ -33,10 +33,12 @@ const fadeIn = keyframes({
 const fadeOut = keyframes({
   from: {
     opacity: 1,
+    display: "flex",
   },
   to: {
     opacity: 0,
     display: "none",
+    height: 0,
   },
 });
 

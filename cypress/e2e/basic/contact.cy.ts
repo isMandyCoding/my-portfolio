@@ -3,6 +3,7 @@
 context('Contact Section', () => {
   beforeEach(() => {
     cy.visit('/')
+
   })
 
   it('Clicks the Link "#contact', async () => {

@@ -19,8 +19,6 @@ const Button = ({ children, href, ...props }: ButtonProps) => {
     transition: "all 150ms",
     "&:hover": {
       cursor: "pointer",
-      // border: (theme) => `2px solid ${theme.colors?.accent}`,
-      // color: "accent",
       backgroundColor: (theme) => `${theme.colors?.accentHover}`,
     },
     "&:focus": {

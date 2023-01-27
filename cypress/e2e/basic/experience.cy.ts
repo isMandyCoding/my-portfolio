@@ -3,6 +3,7 @@
 context('Experience Section', () => {
   beforeEach(() => {
     cy.visit('/')
+
   })
 
   it('Clicks the Link "#experience', () => {

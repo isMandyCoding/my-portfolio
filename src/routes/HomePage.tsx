@@ -30,15 +30,27 @@ const HomePage = (props: HomePageProps) => {
           marginBottom: 4,
         }}
       >
-        Hello! I'm a full-stack developer with a focus on the MERN stack with
-        Typescript and Laravel. In a hurry?{" "}
+        Hello! I'm a full-stack developer with a focus on the PERN stack with
+        Typescript and Laravel. In fact, I built this website with{" "}
+        <Link href="https://laravel.com/" target="_blank">
+          Laravel
+        </Link>{" "}
+        and{" "}
+        <Link
+          href="https://reactjs.org/docs/getting-started.html"
+          target="_blank"
+        >
+          React
+        </Link>
+        . In a hurry?{" "}
         <Link
           href="./MandyCodesResume.pdf"
           title="Download Resume"
           download={true}
         >
           Download My Resume
-        </Link>
+        </Link>{" "}
+        for later.
       </p>
       <div
         sx={{

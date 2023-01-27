@@ -22,7 +22,6 @@ const NavBar = ({ handleMenuOpen, menuOpen, className }: NavBarProps) => {
         flexDirection: "row",
         justifyContent: ["flex-end", "space-between"],
         alignItems: "center",
-        // width: "100%",
         px: 3,
       }}
     >
