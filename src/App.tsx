@@ -2,14 +2,20 @@
 
 import React from "react";
 import GeneralPageLayout from "./routes/GeneralPageLayout";
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer } from "react-toastify";
 
-import 'react-toastify/dist/ReactToastify.css';
-import './ReactToastifyOverrides.css';
+import "react-toastify/dist/ReactToastify.css";
+import "./ReactToastifyOverrides.css";
 
 const App = () => {
   return (
-    <div id="detail">
+    <div
+      id="detail"
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+      }}
+    >
       <GeneralPageLayout />
       <ToastContainer limit={3} />
     </div>

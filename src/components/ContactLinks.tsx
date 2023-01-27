@@ -12,7 +12,7 @@ const ContactLinks = () => {
         display: "flex",
         flexDirection: "row",
         listStyle: "none",
-        m: 2,
+        // m: 2,
         p: 0,
       }}
     >

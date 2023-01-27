@@ -5,6 +5,7 @@ import Chips from "../components/Chips";
 import Cards from "../components/Cards";
 import SubHeading from "../components/SubHeading";
 import { SxProp } from "theme-ui";
+import Link from "../components/Link";
 
 type ExperiencePageProps = HTMLAttributes<HTMLDivElement> & SxProp;
 
@@ -63,8 +64,23 @@ const ExperiencePage = (props: ExperiencePageProps) => {
       <PageHeading
         href="experience"
         headingText="My Experience"
-        subHeadingText="Skills"
+        subHeadingText="Where I've worked"
       />
+      <p
+        sx={{
+          marginBottom: 4,
+        }}
+      >
+        You can check out my experience below, or you can{" "}
+        <Link
+          href="./MandyCodesResume.pdf"
+          title="Download Resume"
+          download={true}
+        >
+          download my resume.
+        </Link>
+      </p>
+      <SubHeading subHeadingText="Skills" />
       <div>
         <Chips chipList={skills} />
       </div>
@@ -72,17 +88,6 @@ const ExperiencePage = (props: ExperiencePageProps) => {
       <Cards cardList={jobHistory} />
       <SubHeading subHeadingText="Education" />
       <Cards cardList={education} />
-      <a
-        sx={{
-          display: "block",
-          color: "secondary",
-          my: 3,
-        }}
-        href="#resume"
-        target="_blank"
-      >
-        Download my resume
-      </a>
     </section>
   );
 };

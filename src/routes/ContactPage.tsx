@@ -63,17 +63,22 @@ const ContactPage = (props: ContactPageProps) => {
     try {
       await AppAxios.post("/contact", formData);
       setStartedFillingOut(false);
-      toast.success("Success! You should receive a confirmation email shortly.", {
-        position: toast.POSITION.BOTTOM_LEFT,
-        theme: colorMode ===  "dark" ? colorMode : "light"
-      });
+      toast.success(
+        "Success! You should receive a confirmation email shortly.",
+        {
+          position: toast.POSITION.BOTTOM_LEFT,
+          theme: colorMode === "dark" ? colorMode : "light",
+        }
+      );
       filloutTime.current = 0;
     } catch (error) {
-      toast.error("There was an error sending your contact info. Please try again.", {
-        position: toast.POSITION.BOTTOM_LEFT,
-        theme: colorMode ===  "dark" ? colorMode : "light"
-        
-      });
+      toast.error(
+        "There was an error sending your contact info. Please try again.",
+        {
+          position: toast.POSITION.BOTTOM_LEFT,
+          theme: colorMode === "dark" ? colorMode : "light",
+        }
+      );
     }
   };
 
@@ -170,7 +175,7 @@ const ContactPage = (props: ContactPageProps) => {
           label="Message"
           name="messageContent"
           id="messageContent"
-          rows={10}
+          rows={8}
           value={messageContent}
           minLength={1}
           maxLength={500}

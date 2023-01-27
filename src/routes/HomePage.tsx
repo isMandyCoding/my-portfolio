@@ -12,6 +12,11 @@ import { ReactComponent as DockerIcon } from "../svg/docker.svg";
 import SkillIcon from "../components/SkillIcon";
 import { HTMLAttributes } from "react";
 import { SxProp } from "theme-ui";
+import Button from "../components/Button";
+import { keyframes } from "@emotion/react";
+
+const typing = keyframes({ from: { width: 0 } });
+const blink = keyframes({ "50%": { borderColor: "transparent" } });
 
 type HomePageProps = HTMLAttributes<HTMLDivElement> & SxProp;
 
@@ -28,9 +33,17 @@ const HomePage = (props: HomePageProps) => {
           marginBottom: 4,
         }}
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
+        Hello! I'm a full-stack developer with a focus on the MERN stack with
+        Typescript and Laravel.
       </p>
+      <div
+        sx={{
+          marginTop: 3,
+          marginBottom: 5,
+        }}
+      >
+        <Button href={"#contact"}>Contact Me!</Button>
+      </div>
       <div
         sx={{
           display: "flex",
@@ -53,6 +66,11 @@ const HomePage = (props: HomePageProps) => {
             svg: {
               path: {
                 fill: "background",
+              },
+              "&:hover": {
+                path: {
+                  fill: "background",
+                },
               },
             },
           }}
