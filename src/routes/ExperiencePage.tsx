@@ -5,6 +5,7 @@ import Cards from "../components/Cards";
 import SubHeading from "../components/SubHeading";
 import { SxProp } from "theme-ui";
 import Link from "../components/Link";
+import Resume from "../MandyCodesResume.pdf";
 
 type ExperiencePageProps = HTMLAttributes<HTMLDivElement> & SxProp;
 
@@ -62,12 +63,8 @@ const ExperiencePage = (props: ExperiencePageProps) => {
         }}
       >
         You can check out an overview of my experience below, or you can{" "}
-        <Link
-          href="./MandyCodesResume.pdf"
-          title="Download Resume"
-          download={true}
-        >
-          download my resume.
+        <Link href={Resume} title="Download Resume" download={true}>
+          Download My Resume
         </Link>
       </p>
       <SubHeading subHeadingText="Work History" />
