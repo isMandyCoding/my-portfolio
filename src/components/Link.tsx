@@ -4,7 +4,7 @@ import React from "react";
 export interface LinkProps
   extends React.AnchorHTMLAttributes<HTMLAnchorElement> {}
 
-const Link = ({ children, ...props }: LinkProps) => {
+const Link = ({ children, className, ...props }: LinkProps) => {
   return (
     <a
       sx={{
@@ -17,7 +17,7 @@ const Link = ({ children, ...props }: LinkProps) => {
           content: "''",
           display: "block",
           width: "0px",
-          height: "2px",
+          height: "3px",
           position: "relative",
           bottom: "0.37em",
           backgroundColor: "secondary",

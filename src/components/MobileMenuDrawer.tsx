@@ -77,10 +77,24 @@ const MobileMenuDrawer = ({ isOpen, onMenuClose }: MobileMenuDrawerProps) => {
       </div>
       <div
         sx={{
-          display: ["block", "none", "none", "none"],
+          display: ["block", "block", "none", "none"],
         }}
       >
         <Divider />
+        <div
+          sx={{
+            display: ["none", "flex", "none"],
+            px: 1,
+          }}
+        >
+          <Link
+            href="./MandyCodesResume.pdf"
+            title="Download Resume"
+            download={true}
+          >
+            Download My Resume
+          </Link>
+        </div>
       </div>
       <div>
         <ul

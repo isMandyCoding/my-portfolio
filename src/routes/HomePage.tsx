@@ -13,10 +13,6 @@ import SkillIcon from "../components/SkillIcon";
 import { HTMLAttributes } from "react";
 import { SxProp } from "theme-ui";
 import Button from "../components/Button";
-import { keyframes } from "@emotion/react";
-
-const typing = keyframes({ from: { width: 0 } });
-const blink = keyframes({ "50%": { borderColor: "transparent" } });
 
 type HomePageProps = HTMLAttributes<HTMLDivElement> & SxProp;
 
@@ -40,9 +36,19 @@ const HomePage = (props: HomePageProps) => {
         sx={{
           marginTop: 3,
           marginBottom: 5,
+          display: "flex",
+          flexDirection: ["column", "row"],
+          gap: 3,
         }}
       >
-        <Button href={"#contact"}>Contact Me!</Button>
+        <Button href={"#contact"}>Contact Me</Button>
+        <Button
+          href="./MandyCodesResume.pdf"
+          title="Download Resume"
+          download={true}
+        >
+          Download My Resume
+        </Button>
       </div>
       <div
         sx={{

@@ -6,7 +6,6 @@ import MobileMenuDrawer from "../components/MobileMenuDrawer";
 import HomePage from "./HomePage";
 import ExperiencePage from "./ExperiencePage";
 import ContactPage from "./ContactPage";
-import ProjectsPage from "./ProjectsPage";
 import { keyframes } from "@emotion/react";
 import StyleableSVG from "../components/StyleableSVG";
 
@@ -36,14 +35,6 @@ const fadeOut = keyframes({
     opacity: 1,
   },
   to: {
-    opacity: 0,
-    display: "none",
-  },
-});
-
-const endBlink = keyframes({
-  to: {
-    borderColor: "transparent",
     opacity: 0,
     display: "none",
   },
@@ -148,21 +139,22 @@ export default function GeneralPageLayout({
                 gap: 4,
                 animation: `${fadeIn} 1s forwards 4s`,
                 opacity: 0,
+                marginBottom: 5,
               }}
             >
               <HomePage
                 sx={{
-                  p: ["0 24px", "0 48px"],
+                  p: ["0 24px", "0 64px 0 48px", "0 72px"],
                 }}
               />
               <ExperiencePage
                 sx={{
-                  p: ["0 24px", "0 48px"],
+                  p: ["0 24px", "0 64px 0 48px", "0 72px"],
                 }}
               />
               <ContactPage
                 sx={{
-                  p: ["0 24px", "0 48px"],
+                  p: ["0 24px", "0 64px 0 48px", "0 72px"],
                 }}
               />
             </div>
@@ -172,7 +164,6 @@ export default function GeneralPageLayout({
           id="bottomBar"
           sx={{
             mx: [2, 4],
-            // px: 4,
             position: "relative",
             display: "flex",
             flexDirection: "column",
@@ -182,8 +173,8 @@ export default function GeneralPageLayout({
             "&::before": {
               content: "''",
               position: "absolute",
-              bottom: ["16px"],
-              right: ["16px", null, "36px"],
+              bottom: ["16px", null, "36px"],
+              right: ["8px", null, "36px"],
               borderBottom: (theme) => `1px solid ${theme?.colors?.accent}`,
               borderRight: (theme) => `1px solid ${theme?.colors?.accent}`,
               width: "16rem",

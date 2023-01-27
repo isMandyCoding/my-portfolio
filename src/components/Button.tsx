@@ -2,9 +2,8 @@
 import React, { ButtonHTMLAttributes } from "react";
 import { ThemeUICSSObject } from "theme-ui";
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  href?: string;
-}
+export type ButtonProps = ButtonHTMLAttributes<HTMLButtonElement> &
+  React.AnchorHTMLAttributes<HTMLAnchorElement> & {};
 
 const Button = ({ children, href, ...props }: ButtonProps) => {
   const style: ThemeUICSSObject = {
@@ -31,7 +30,7 @@ const Button = ({ children, href, ...props }: ButtonProps) => {
   return (
     <div>
       {href ? (
-        <a href={href} sx={style}>
+        <a href={href} sx={style} {...props}>
           {children}{" "}
         </a>
       ) : (

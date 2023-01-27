@@ -42,7 +42,7 @@ const NavBarLink = (props: NavBarLinkProps) => {
         onClick={onClick}
         sx={{
           fontFamily: "body",
-          fontSize: "16px",
+          fontSize: 3,
           fontWeight: true ? "bold" : "normal",
           color: "text",
           textDecoration: "none",
