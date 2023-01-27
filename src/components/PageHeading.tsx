@@ -24,6 +24,7 @@ const PageHeading = ({
         sx={{
           paddingTop: 3,
           variant: "heading",
+          fontSize: [5, 6],
           position: "relative",
           paddingBottom: 3,
           "&::After": {

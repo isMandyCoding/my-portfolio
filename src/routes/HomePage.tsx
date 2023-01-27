@@ -12,6 +12,8 @@ import { ReactComponent as DockerIcon } from "../svg/docker.svg";
 import SkillIcon from "../components/SkillIcon";
 import { HTMLAttributes } from "react";
 import { SxProp } from "theme-ui";
+import Button from "../components/Button";
+import Link from "../components/Link";
 
 type HomePageProps = HTMLAttributes<HTMLDivElement> & SxProp;
 
@@ -28,9 +30,39 @@ const HomePage = (props: HomePageProps) => {
           marginBottom: 4,
         }}
       >
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
+        Hello! I'm a full-stack developer with a focus on the PERN stack with
+        Typescript and Laravel. In fact, I built this website with{" "}
+        <Link href="https://laravel.com/" target="_blank">
+          Laravel
+        </Link>{" "}
+        and{" "}
+        <Link
+          href="https://reactjs.org/docs/getting-started.html"
+          target="_blank"
+        >
+          React
+        </Link>
+        . In a hurry?{" "}
+        <Link
+          href="./MandyCodesResume.pdf"
+          title="Download Resume"
+          download={true}
+        >
+          Download My Resume
+        </Link>{" "}
+        for later.
       </p>
+      <div
+        sx={{
+          marginTop: 3,
+          marginBottom: 5,
+          display: "flex",
+          flexDirection: ["column", "row"],
+          gap: 3,
+        }}
+      >
+        <Button href={"#contact"}>Contact Me</Button>
+      </div>
       <div
         sx={{
           display: "flex",
@@ -53,6 +85,11 @@ const HomePage = (props: HomePageProps) => {
             svg: {
               path: {
                 fill: "background",
+              },
+              "&:hover": {
+                path: {
+                  fill: "background",
+                },
               },
             },
           }}

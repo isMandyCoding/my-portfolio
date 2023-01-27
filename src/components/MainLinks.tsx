@@ -17,12 +17,12 @@ const MainLinks = ({ onMenuClose, menuOpen }: MainLinksProps) => {
     <ul
       sx={{
         display: "flex",
-        flexDirection: ["column", "column", "row", "row"],
-        alignItems: "start",
+        flexDirection: ["column", "column", "row"],
+        gap: 2,
         m: 0,
-        px: 3,
         listStyle: "none",
         overflow: "hidden",
+        paddingLeft: 0,
       }}
     >
       <NavBarLink
@@ -42,12 +42,6 @@ const MainLinks = ({ onMenuClose, menuOpen }: MainLinksProps) => {
         onClick={handleLinkClick}
         to="#contact"
         text="Contact"
-      />
-      <NavBarLink
-        tabIndex={menuOpen ? 3 : -1}
-        onClick={handleLinkClick}
-        to="#projects"
-        text="Projects"
       />
     </ul>
   );

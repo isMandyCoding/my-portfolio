@@ -1,9 +1,11 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 export const useHashFragment = (offset = 0, isSmooth = true) => {
+  const [currentHash, setCurrentHash] = useState("");
   useEffect(() => {
     const scrollToHashElement = () => {
       const { hash } = window.location;
+      if (!hash) return;
       const elementToScroll = document.getElementById(hash);
       if (!elementToScroll) return;
 
@@ -11,6 +13,7 @@ export const useHashFragment = (offset = 0, isSmooth = true) => {
       elementToScroll.scrollIntoView({
         behavior: behavior,
       });
+      setCurrentHash(hash);
     };
 
     scrollToHashElement();
@@ -19,4 +22,5 @@ export const useHashFragment = (offset = 0, isSmooth = true) => {
       window.removeEventListener("hashchange", scrollToHashElement);
     };
   }, [isSmooth]);
+  return currentHash;
 };

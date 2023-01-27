@@ -14,6 +14,8 @@ const IconButton = ({ icon, onClick }: IconButtonProps) => {
         bg: "transparent",
         border: "none",
         cursor: "pointer",
+        mx: 0,
+        px: 0,
         "&:hover": {
           svg: {
             path: {

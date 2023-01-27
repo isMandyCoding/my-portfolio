@@ -17,6 +17,7 @@ export const theme: Theme = {
     primary: "#ff5757",
     secondary: "#00c2cb",
     accent: "#01949a",
+    accentHover: "rgba(0, 194, 203, 0.15)",
     accentBackgroundContrast: "#000",
     modes: {
       dark: {
@@ -61,7 +62,7 @@ export const theme: Theme = {
       fontFamily: "heading",
       lineHeight: "heading",
       fontWeight: "heading",
-      fontSize: 5,
+      fontSize: 6,
     },
   },
   layout: {

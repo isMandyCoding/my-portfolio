@@ -1,6 +1,5 @@
 /** @jsxImportSource theme-ui */
 import React, { useState } from "react";
-import { keyframes } from "@emotion/react";
 import { ReactComponent as ArrowIcon } from "../svg/down-arrow.svg";
 import IconButton from "./IconButton";
 
@@ -10,24 +9,6 @@ export interface CardProps {
   cardContent: string;
   hiddenContent?: string;
 }
-
-const rotateButton = keyframes({
-  from: {
-    transform: "none",
-  },
-  to: {
-    transform: "rotate(180deg)",
-  },
-});
-
-const expandHiddenContent = keyframes({
-  from: {
-    height: 0,
-  },
-  to: {
-    height: "9000px",
-  },
-});
 
 const Card = ({
   cardTitle,
@@ -50,10 +31,7 @@ const Card = ({
           justifyContent: "center",
           transition: "all 150ms",
           transform: revealHiddenContent ? "rotate(180deg)" : "none",
-          animation: revealHiddenContent
-            ? `${rotateButton} 150ms forwards`
-            : "none",
-          py: 2,
+          py: 0,
         }}
       >
         {hiddenContent ? (
@@ -103,20 +81,12 @@ const Card = ({
       </p>
       <div
         sx={{
-          maxHeight: revealHiddenContent ? "360px" : 0,
-          overflow: "hidden",
+          overflow: revealHiddenContent ? "inherit" : "hidden",
           transition: "all 150ms",
+          height: revealHiddenContent ? "100%" : "0",
         }}
       >
-        <div
-          sx={{
-            animation: revealHiddenContent
-              ? `${expandHiddenContent} 500ms forwards`
-              : "none",
-          }}
-        >
-          {hiddenContent}
-        </div>
+        {hiddenContent}
       </div>
       <ExpandContentButton />
     </div>
