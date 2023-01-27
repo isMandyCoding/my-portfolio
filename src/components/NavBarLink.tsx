@@ -1,7 +1,6 @@
 /** @jsxImportSource theme-ui */
 import React, { LiHTMLAttributes, useState, useEffect } from "react";
 import { useHashFragment } from "../common/hooks/useHashFragment";
-import { useBreakpointIndex } from "@theme-ui/match-media";
 
 export interface NavBarLinkProps extends LiHTMLAttributes<HTMLAnchorElement> {
   text: string;
@@ -19,8 +18,7 @@ const NavBarLink = (props: NavBarLinkProps) => {
     }
   }, []);
 
-  const bpIndex = useBreakpointIndex();
-  const isScrollSmooth = bpIndex > 1 && !motionPref;
+  const isScrollSmooth = !motionPref;
   const currentHash = useHashFragment(80, isScrollSmooth);
 
   return (

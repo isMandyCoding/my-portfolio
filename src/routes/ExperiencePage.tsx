@@ -1,7 +1,6 @@
 /** @jsxImportSource theme-ui */
 import React, { HTMLAttributes } from "react";
 import PageHeading from "../components/PageHeading";
-import Chips from "../components/Chips";
 import Cards from "../components/Cards";
 import SubHeading from "../components/SubHeading";
 import { SxProp } from "theme-ui";
@@ -10,18 +9,6 @@ import Link from "../components/Link";
 type ExperiencePageProps = HTMLAttributes<HTMLDivElement> & SxProp;
 
 const ExperiencePage = (props: ExperiencePageProps) => {
-  const skills = [
-    "Javascript",
-    "React",
-    "HTML/CSS",
-    "Git",
-    "ExpressJS",
-    "PHP/Laravel",
-    "SQL",
-    "MongoDB",
-    "NodeJS",
-  ];
-
   const jobHistory = [
     {
       cardTitle: "Software Engineer",
@@ -36,8 +23,8 @@ const ExperiencePage = (props: ExperiencePageProps) => {
       cardTitle: "Software Engineer",
       cardSubtitle: "Integrate",
       cardContent: "May 2019 - Oct 2020",
-      hiddenContent: `Work as part of our Data Insights team to build reporting 
-        and insights solutions for our customers.`,
+      hiddenContent: `Built reporting and insights solutions for B2B Marketing customers
+         as part of our Data Insights team.`,
     },
     {
       cardTitle: "PFS Reconciliation QA",
@@ -74,7 +61,7 @@ const ExperiencePage = (props: ExperiencePageProps) => {
           marginBottom: 4,
         }}
       >
-        You can check out my experience below, or you can{" "}
+        You can check out an overview of my experience below, or you can{" "}
         <Link
           href="./MandyCodesResume.pdf"
           title="Download Resume"
@@ -83,10 +70,6 @@ const ExperiencePage = (props: ExperiencePageProps) => {
           download my resume.
         </Link>
       </p>
-      <SubHeading subHeadingText="Skills" />
-      <div>
-        <Chips chipList={skills} />
-      </div>
       <SubHeading subHeadingText="Work History" />
       <Cards cardList={jobHistory} />
       <SubHeading subHeadingText="Education" />

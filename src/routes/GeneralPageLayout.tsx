@@ -73,7 +73,7 @@ export default function GeneralPageLayout({
       <div
         sx={{
           display: "grid",
-          gridTemplateRows: "64px 1fr auto",
+          gridTemplateRows: ["64px 1fr 32px", "64px 1fr 64px"],
           gap: 1,
           height: "100vh",
           position: "relative",
@@ -84,20 +84,19 @@ export default function GeneralPageLayout({
           sx={{
             position: "sticky",
             display: "flex",
-            // justifyContent: "start",
-            width: 1,
+            flexDirection: "row",
             alignItems: "center",
             "&::after": {
               content: "''",
               position: "absolute",
               top: "64px",
-              left: ["16px", null, "48px"],
+              left: ["8px", "16px", "48px"],
               display: "inline-block",
               borderTop: (theme) => `1px solid ${theme?.colors?.accent}`,
               borderLeft: (theme) => `1px solid ${theme?.colors?.accent}`,
               width: "16rem",
-              height: "8rem",
-              padding: 1,
+              height: [0, "8rem"],
+              padding: [0, 1],
             },
           }}
         >
@@ -123,7 +122,6 @@ export default function GeneralPageLayout({
             py: 0,
             mx: 0,
             overflowY: "scroll",
-            maxHeight: "100%",
             scrollbarWidth: "none",
           }}
           id="detail"
@@ -136,7 +134,9 @@ export default function GeneralPageLayout({
           >
             <div
               sx={{
-                gap: 4,
+                display: "flex",
+                flexDirection: "column",
+                gap: 5,
                 animation: `${fadeIn} 1s forwards 4s`,
                 opacity: 0,
                 marginBottom: 5,
@@ -144,17 +144,17 @@ export default function GeneralPageLayout({
             >
               <HomePage
                 sx={{
-                  p: ["0 24px", "0 64px 0 48px", "0 72px"],
+                  p: ["0 8px", "0 64px 0 48px", "0 72px"],
                 }}
               />
               <ExperiencePage
                 sx={{
-                  p: ["0 24px", "0 64px 0 48px", "0 72px"],
+                  p: ["0 8px", "0 64px 0 48px", "0 72px"],
                 }}
               />
               <ContactPage
                 sx={{
-                  p: ["0 24px", "0 64px 0 48px", "0 72px"],
+                  p: ["0 8px", "0 64px 0 48px", "0 72px"],
                 }}
               />
             </div>
@@ -174,11 +174,11 @@ export default function GeneralPageLayout({
               content: "''",
               position: "absolute",
               bottom: ["16px", null, "36px"],
-              right: ["8px", null, "36px"],
+              right: ["0", "16px", "48px"],
               borderBottom: (theme) => `1px solid ${theme?.colors?.accent}`,
               borderRight: (theme) => `1px solid ${theme?.colors?.accent}`,
               width: "16rem",
-              height: "8rem",
+              height: [0, "8rem"],
             },
           }}
         ></div>

@@ -20,24 +20,12 @@ const NavBar = ({ handleMenuOpen, menuOpen, className }: NavBarProps) => {
       sx={{
         display: "flex",
         flexDirection: "row",
-        // gap: 2,
-        justifyContent: "space-between",
-        // alignContent: "center",
+        justifyContent: ["flex-end", "space-between"],
         alignItems: "center",
-        // height: "48px",
+        // width: "100%",
         px: 3,
       }}
     >
-      <div
-        sx={{
-          display: ["none", menuOpen ? "none" : "flex", "none"],
-          justifyContent: "center",
-          alignItems: "center",
-          mx: 0,
-        }}
-      >
-        <IconButton icon={<MenuIcon />} onClick={handleMenuOpen} />
-      </div>
       <div
         sx={{
           display: ["none", "none", "flex"],
@@ -73,7 +61,7 @@ const NavBar = ({ handleMenuOpen, menuOpen, className }: NavBarProps) => {
 
       <div
         sx={{
-          display: [menuOpen ? "none" : "flex", "none"],
+          display: [menuOpen ? "none" : "flex", null, "none"],
           justifyContent: "center",
           alignItems: "center",
           px: 1,

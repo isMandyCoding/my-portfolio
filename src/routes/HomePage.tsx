@@ -13,6 +13,7 @@ import SkillIcon from "../components/SkillIcon";
 import { HTMLAttributes } from "react";
 import { SxProp } from "theme-ui";
 import Button from "../components/Button";
+import Link from "../components/Link";
 
 type HomePageProps = HTMLAttributes<HTMLDivElement> & SxProp;
 
@@ -30,7 +31,14 @@ const HomePage = (props: HomePageProps) => {
         }}
       >
         Hello! I'm a full-stack developer with a focus on the MERN stack with
-        Typescript and Laravel.
+        Typescript and Laravel. In a hurry?{" "}
+        <Link
+          href="./MandyCodesResume.pdf"
+          title="Download Resume"
+          download={true}
+        >
+          Download My Resume
+        </Link>
       </p>
       <div
         sx={{
@@ -42,13 +50,6 @@ const HomePage = (props: HomePageProps) => {
         }}
       >
         <Button href={"#contact"}>Contact Me</Button>
-        <Button
-          href="./MandyCodesResume.pdf"
-          title="Download Resume"
-          download={true}
-        >
-          Download My Resume
-        </Button>
       </div>
       <div
         sx={{
