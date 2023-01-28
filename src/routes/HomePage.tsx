@@ -13,8 +13,9 @@ import SkillIcon from "../components/SkillIcon";
 import { HTMLAttributes } from "react";
 import { SxProp } from "theme-ui";
 import Button from "../components/Button";
-import Link from "../components/Link";
+// import Link from "../components/Link";
 import DownloadResumeLink from "../components/DownloadResumeLink";
+import Link from "../components/Link";
 
 type HomePageProps = HTMLAttributes<HTMLDivElement> & SxProp;
 
@@ -43,10 +44,10 @@ const HomePage = (props: HomePageProps) => {
         >
           React
         </Link>
-        {"."}
-        <p>
-          In a hurry? <DownloadResumeLink />.
-        </p>
+        .
+      </p>
+      <p>
+        In a hurry? <DownloadResumeLink />.
       </p>
       <div
         sx={{

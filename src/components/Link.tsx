@@ -7,7 +7,7 @@ export type LinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> &
 
 const Link = ({ children, className, href, ...props }: LinkProps) => {
   const style: ThemeUICSSObject = {
-    display: "inline",
+    display: "inline-block",
     transition: "all 450ms",
     textDecoration: "none",
     color: "secondary",
@@ -37,17 +37,9 @@ const Link = ({ children, className, href, ...props }: LinkProps) => {
   };
 
   return (
-    <span sx={{ display: "inline-block" }}>
-      {href ? (
-        <a href={href} sx={style} {...props}>
-          {children}{" "}
-        </a>
-      ) : (
-        <button sx={style} {...props}>
-          {children}
-        </button>
-      )}
-    </span>
+    <a href={href} sx={style} {...props}>
+      {children}
+    </a>
   );
 };
 
