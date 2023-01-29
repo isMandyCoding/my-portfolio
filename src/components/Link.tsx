@@ -37,9 +37,17 @@ const Link = ({ children, className, href, ...props }: LinkProps) => {
   };
 
   return (
-    <a href={href} sx={style} {...props}>
-      {children}
-    </a>
+    <span sx={{ display: "inline-block" }}>
+      {href ? (
+        <a href={href} sx={style} {...props}>
+          {children}{" "}
+        </a>
+      ) : (
+        <button sx={style} {...props}>
+          {children}
+        </button>
+      )}
+    </span>
   );
 };
 
