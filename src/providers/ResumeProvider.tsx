@@ -1,4 +1,4 @@
-import { createContext, ReactNode, useEffect, useState } from "react";
+import { createContext, ReactNode, useEffect, useRef, useState } from "react";
 import AppAxios from "../common/utils/AppAxios";
 
 export type ResumeProviderProps = {
@@ -16,21 +16,24 @@ export const ResumeContext = createContext<ResumeContextType>({
 const ResumeProvider = ({ children }: ResumeProviderProps) => {
   const [anchorUrl, setAnchorUrl] = useState("");
 
+  const effectHasRun = useRef(false);
+
   useEffect(() => {
-    const controller = new AbortController();
+    if (effectHasRun.current) return;
     const fetchResume = async () => {
-      if (anchorUrl) return;
-      const response = await AppAxios.get("/downloads/resume.pdf", {
-        responseType: "blob",
-        signal: controller.signal,
-      });
-      const fileUrl = window.URL.createObjectURL(response.data);
-      setAnchorUrl(fileUrl);
+      try {
+        const response = await AppAxios.get("/downloads/resume.pdf", {
+          responseType: "blob",
+        });
+        const fileUrl = window.URL.createObjectURL(response.data);
+        setAnchorUrl(fileUrl);
+      } catch (error) {}
     };
-    try {
-      fetchResume();
-    } catch (error) {}
-    return () => controller.abort();
+    fetchResume();
+
+    return () => {
+      effectHasRun.current = true;
+    };
   }, [anchorUrl]);
 
   const value = {

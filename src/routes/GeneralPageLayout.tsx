@@ -8,6 +8,7 @@ import ExperiencePage from "./ExperiencePage";
 import ContactPage from "./ContactPage";
 import { keyframes } from "@emotion/react";
 import StyleableSVG from "../components/StyleableSVG";
+import { ReactComponent as MyIcon } from "../svg/Logo.svg";
 
 const typing = keyframes({
   from: {
@@ -197,7 +198,15 @@ export default function GeneralPageLayout({
           animation: `${fadeOut} 1s forwards 3s`,
         }}
       >
-        <StyleableSVG svg={<FlowerIcon />} />
+        <StyleableSVG
+          svg={<MyIcon />}
+          sx={{
+            svg: {
+              width: "120px",
+              height: "120px",
+            },
+          }}
+        />
         <p
           sx={{
             width: "22ch",
