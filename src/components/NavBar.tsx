@@ -20,9 +20,9 @@ const NavBar = ({ handleMenuOpen, menuOpen, className }: NavBarProps) => {
       sx={{
         display: "flex",
         flexDirection: "row",
-        justifyContent: ["flex-end", "space-between"],
+        justifyContent: ["flex-start", "space-between"],
         alignItems: "center",
-        px: 3,
+        px: 4,
       }}
     >
       <div
