@@ -34,7 +34,7 @@ const ResumeProvider = ({ children }: ResumeProviderProps) => {
     return () => {
       effectHasRun.current = true;
     };
-  }, [anchorUrl]);
+  }, []);
 
   const value = {
     anchorUrl,
