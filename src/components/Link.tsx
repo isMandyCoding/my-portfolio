@@ -1,24 +1,11 @@
 /** @jsxImportSource theme-ui */
-import React, { MouseEventHandler, RefObject, useRef } from "react";
+import React from "react";
 import { ThemeUICSSObject } from "theme-ui";
 
 export type LinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement> &
-  React.ButtonHTMLAttributes<HTMLButtonElement> & {
-    ref?: React.RefObject<HTMLAnchorElement>;
-    onAnchorClick?: (
-      ref: RefObject<HTMLAnchorElement> | undefined,
-      event: React.MouseEvent<HTMLAnchorElement, MouseEvent>
-    ) => void;
-  };
+  React.ButtonHTMLAttributes<HTMLButtonElement> & {};
 
-const Link = ({
-  children,
-  className,
-  href,
-  ref,
-  onAnchorClick,
-  ...props
-}: LinkProps) => {
+const Link = ({ children, className, href, ...props }: LinkProps) => {
   const style: ThemeUICSSObject = {
     display: "inline-block",
     transition: "all 450ms",
@@ -49,22 +36,11 @@ const Link = ({
     },
   };
 
-  const anchorRef = useRef<HTMLAnchorElement>(null);
-  const handleClick: MouseEventHandler<HTMLAnchorElement> = (event) => {
-    onAnchorClick && onAnchorClick(anchorRef, event);
-  };
-
   return (
     <span sx={{ display: "inline-block" }}>
       {href ? (
-        <a
-          ref={anchorRef}
-          onClick={handleClick}
-          href={href}
-          sx={style}
-          {...props}
-        >
-          {children}{" "}
+        <a href={href} sx={style} {...props}>
+          {children}
         </a>
       ) : (
         <button sx={style} {...props}>

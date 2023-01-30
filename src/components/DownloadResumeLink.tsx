@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-import { RefObject, useContext, useRef } from "react";
+import { useContext } from "react";
 import { ResumeContext } from "../providers/ResumeProvider";
 import Link from "./Link";
 
@@ -10,9 +10,9 @@ const DownloadResumeLink = () => {
 
   return (
     <Link
-      target={"_blank"}
+      target="_blank"
       rel="noopener,noreferrer"
-      download={"MandyCodesResume.pdf"}
+      download="MandyCodesResume.pdf"
       href={anchorUrl ? anchorUrl : fallbackLink}
     >
       {anchorUrl ? "Download My Resume" : fallBackText}

@@ -1,7 +1,6 @@
 /** @jsxImportSource theme-ui */
 import NavBar from "../components/NavBar";
 import { HTMLAttributes, MouseEventHandler, useState } from "react";
-import { ReactComponent as FlowerIcon } from "../svg/daisy.svg";
 import MobileMenuDrawer from "../components/MobileMenuDrawer";
 import HomePage from "./HomePage";
 import ExperiencePage from "./ExperiencePage";
