@@ -64,20 +64,12 @@ const ContactPage = (props: ContactPageProps) => {
       await AppAxios.post("/contact", formData);
       setStartedFillingOut(false);
       toast.success(
-        "Success! You should receive a confirmation email shortly.",
-        {
-          position: toast.POSITION.BOTTOM_LEFT,
-          theme: colorMode === "dark" ? colorMode : "light",
-        }
+        "Success! You should receive a confirmation email shortly."
       );
       filloutTime.current = 0;
     } catch (error) {
       toast.error(
-        "There was an error sending your contact info. Please try again.",
-        {
-          position: toast.POSITION.BOTTOM_LEFT,
-          theme: colorMode === "dark" ? colorMode : "light",
-        }
+        "There was an error sending your contact info. Please try again."
       );
     }
   };

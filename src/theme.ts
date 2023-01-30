@@ -40,7 +40,7 @@ export const theme: Theme = {
       lineHeight: "heading",
       fontWeight: "heading",
     },
-    boxy: {
+    body: {
       fontFamily: "body",
       lineHeight: "body",
       fontWeight: "body",

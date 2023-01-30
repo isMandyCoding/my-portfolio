@@ -13,8 +13,8 @@ import SkillIcon from "../components/SkillIcon";
 import { HTMLAttributes } from "react";
 import { SxProp } from "theme-ui";
 import Button from "../components/Button";
+import DownloadResumeLink from "../components/DownloadResumeLink";
 import Link from "../components/Link";
-import Resume from "../MandyCodesResume.pdf";
 
 type HomePageProps = HTMLAttributes<HTMLDivElement> & SxProp;
 
@@ -43,15 +43,14 @@ const HomePage = (props: HomePageProps) => {
         >
           React
         </Link>
-        . In a hurry?{" "}
-        <Link href={Resume} title="Download Resume" download={true}>
-          Download My Resume
-        </Link>{" "}
-        for later.
+        .
+      </p>
+      <p>
+        In a hurry? <DownloadResumeLink />.
       </p>
       <div
         sx={{
-          marginTop: 3,
+          marginTop: 4,
           marginBottom: 5,
           display: "flex",
           flexDirection: ["column", "row"],
