@@ -104,7 +104,7 @@ const ContactPage = (props: ContactPageProps) => {
         sx={{
           display: "flex",
           flexDirection: "column",
-          gap: 2,
+          gap: 3,
         }}
         onSubmit={handleFormSubmit}
         onChange={handleFormChange}
@@ -113,7 +113,7 @@ const ContactPage = (props: ContactPageProps) => {
           sx={{
             display: "grid",
             gridTemplateColumns: ["1fr", "1fr", "1fr", "1fr 1fr"],
-            gap: 2,
+            gap: 3,
           }}
         >
           <Input

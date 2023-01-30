@@ -146,17 +146,17 @@ export default function GeneralPageLayout({
             >
               <HomePage
                 sx={{
-                  p: ["0 8px", "0 64px 0 48px", "0 72px"],
+                  p: ["0 32px", "0 64px 0 48px", "0 72px"],
                 }}
               />
               <ExperiencePage
                 sx={{
-                  p: ["0 8px", "0 64px 0 48px", "0 72px"],
+                  p: ["0 32px", "0 64px 0 48px", "0 72px"],
                 }}
               />
               <ContactPage
                 sx={{
-                  p: ["0 8px", "0 64px 0 48px", "0 72px"],
+                  p: ["0 32px", "0 64px 0 48px", "0 72px"],
                 }}
               />
             </div>

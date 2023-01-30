@@ -47,7 +47,7 @@ const MobileMenuDrawer = ({ isOpen, onMenuClose }: MobileMenuDrawerProps) => {
         display: ["block", "block", "none", "none"],
         transition: "150ms",
         position: "absolute",
-        right: 0,
+        left: 0,
         top: 0,
         bg: "background",
         p: 4,
@@ -55,7 +55,7 @@ const MobileMenuDrawer = ({ isOpen, onMenuClose }: MobileMenuDrawerProps) => {
         boxShadow: isOpen
           ? (theme) => `0px 0 16px 0px ${theme?.colors?.textLight}`
           : "none",
-        transform: isOpen ? "translateX(0)" : "translateX(100%)",
+        transform: isOpen ? "translateX(0)" : "translateX(-100%)",
         width: ["100%", "80%", null, null],
         height: "100vh",
         overflow: "hidden",
@@ -69,7 +69,8 @@ const MobileMenuDrawer = ({ isOpen, onMenuClose }: MobileMenuDrawerProps) => {
         sx={{
           display: "flex",
           flexDirection: "row",
-          justifyContent: "flex-end",
+          justifyContent: "flex-start",
+          my: 3,
         }}
       >
         <IconButton icon={<CloseIcon />} onClick={onMenuClose} />
