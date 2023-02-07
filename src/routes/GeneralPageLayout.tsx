@@ -6,20 +6,7 @@ import HomePage from "./HomePage";
 import ExperiencePage from "./ExperiencePage";
 import ContactPage from "./ContactPage";
 import { keyframes } from "@emotion/react";
-import StyleableSVG from "../components/StyleableSVG";
-import { ReactComponent as MyIcon } from "../svg/Logo.svg";
-
-const typing = keyframes({
-  from: {
-    width: 0,
-  },
-});
-
-const blink = keyframes({
-  "50%": {
-    borderColor: "transparent",
-  },
-});
+import InitialLoadMessage from "../components/InitialLoadMessage";
 
 const fadeIn = keyframes({
   from: {
@@ -27,18 +14,6 @@ const fadeIn = keyframes({
   },
   to: {
     opacity: 1,
-  },
-});
-
-const fadeOut = keyframes({
-  from: {
-    opacity: 1,
-    display: "flex",
-  },
-  to: {
-    opacity: 0,
-    display: "none",
-    height: 0,
   },
 });
 
@@ -72,6 +47,7 @@ export default function GeneralPageLayout({
         },
       }}
     >
+      <InitialLoadMessage />
       <div
         sx={{
           display: "grid",
@@ -186,39 +162,6 @@ export default function GeneralPageLayout({
         ></div>
       </div>
       <MobileMenuDrawer isOpen={menuOpen} onMenuClose={handleMenuClose} />
-
-      <div
-        sx={{
-          position: "fixed",
-          top: "45vh",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          animation: `${fadeOut} 1s forwards 3s`,
-        }}
-      >
-        <StyleableSVG
-          svg={<MyIcon />}
-          sx={{
-            svg: {
-              width: "120px",
-              height: "120px",
-            },
-          }}
-        />
-        <p
-          sx={{
-            width: "22ch",
-            fontSize: 3,
-            animation: `${typing} 2s steps(22) 0s, ${blink} .5s step-end infinite alternate`,
-            whiteSpace: "nowrap",
-            overflow: "hidden",
-            borderRight: (theme) => `3px solid ${theme.colors?.text}`,
-          }}
-        >
-          Welcome to my website.
-        </p>
-      </div>
     </div>
   );
 }

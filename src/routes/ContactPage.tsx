@@ -9,11 +9,12 @@ import React, {
 } from "react";
 import { toast } from "react-toastify";
 import { SxProp, useColorMode } from "theme-ui";
-import AppAxios from "../common/utils/AppAxios";
 import Button from "../components/Button";
 import Input from "../components/Input";
+import Link from "../components/Link";
 import PageHeading from "../components/PageHeading";
 import TextArea from "../components/TextArea";
+import axios from "axios";
 
 type ContactPageProps = HTMLAttributes<HTMLDivElement> & SxProp;
 
@@ -51,17 +52,26 @@ const ContactPage = (props: ContactPageProps) => {
 
   const handleFormSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    const formData = {
-      email: contactEmail.trim(),
+    const emailParams = {
+      to_email: contactEmail.trim(),
       name: contactName.trim(),
       subject: messageSubject.trim(),
       content: messageContent.trim(),
       website: email, // honeypot
       colorMode: colorMode,
-      formTime: filloutTime.current,
     };
     try {
-      await AppAxios.post("/contact", formData);
+      const timeIsSus = filloutTime.current <= 5;
+      const honeypotFilled = !!email;
+      if (timeIsSus || honeypotFilled) {
+      } else {
+        await axios.post("https://api.emailjs.com/api/v1.0/email/send", {
+          service_id: "service_egbzb8n",
+          template_id: "template_9rib1jm",
+          user_id: "i1Cirl7T8ztv1fa3t",
+          template_params: emailParams,
+        });
+      }
       setStartedFillingOut(false);
       toast.success(
         "Success! You should receive a confirmation email shortly."
@@ -98,6 +108,12 @@ const ContactPage = (props: ContactPageProps) => {
         headingText="Contact Me"
         subHeadingText="I'm interested in new opportunities."
       />
+      <p>
+        You can also email me directly at{" "}
+        <Link href="mailto:amanda.everett.codes@gmail.com">
+          amanda.everett.codes@gmail.com
+        </Link>
+      </p>
       <form
         action="submit"
         id="contactForm"
@@ -181,7 +197,7 @@ const ContactPage = (props: ContactPageProps) => {
             opacity: 0.75,
           }}
         >
-          Max length 500 characters
+          Max length {messageContent.length}/500 characters
         </p>
         <div
           sx={{

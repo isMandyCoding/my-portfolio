@@ -8,7 +8,6 @@ import { ReactComponent as MongoDBIcon } from "../svg/leaf.svg";
 import { ReactComponent as SQLIcon } from "../svg/database.svg";
 import { ReactComponent as LaravelIcon } from "../svg/laravel_logo.svg";
 import { ReactComponent as GitIcon } from "../svg/git.svg";
-import { ReactComponent as DockerIcon } from "../svg/docker.svg";
 import SkillIcon from "../components/SkillIcon";
 import { HTMLAttributes } from "react";
 import { SxProp } from "theme-ui";
@@ -31,19 +30,22 @@ const HomePage = (props: HomePageProps) => {
           marginBottom: 4,
         }}
       >
-        Hello! I'm a full-stack developer with a focus on the PERN stack with
-        Typescript and Laravel. In fact, I built this website with{" "}
-        <Link href="https://laravel.com/" target="_blank">
-          Laravel
-        </Link>{" "}
-        and{" "}
+        Hello! My name is Mandy and I'm a full-stack developer with a focus on
+        the PERN stack with Typescript and Laravel. In fact, I built this
+        website with{" "}
         <Link
           href="https://reactjs.org/docs/getting-started.html"
           target="_blank"
         >
           React
         </Link>
-        .
+        . If you're curious, you can{" "}
+        <Link
+          href="https://github.com/isMandyCoding/my-portfolio"
+          target="_blank"
+        >
+          check out the source code.
+        </Link>
       </p>
       <p>
         In a hurry? <DownloadResumeLink />.
@@ -73,7 +75,6 @@ const HomePage = (props: HomePageProps) => {
         <SkillIcon svg={<SQLIcon />} skill="SQL" />
         <SkillIcon svg={<LaravelIcon />} skill="PHP/Laravel" />
         <SkillIcon svg={<GitIcon />} skill="Git" />
-        <SkillIcon svg={<DockerIcon />} skill="Docker" />
         <SkillIcon
           svg={<TypescriptIcon />}
           skill="Typescript"
