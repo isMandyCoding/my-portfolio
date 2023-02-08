@@ -48,7 +48,7 @@ const HomePage = (props: HomePageProps) => {
         </Link>
       </p>
       <p>
-        In a hurry? <DownloadResumeLink />.
+        In a hurry? <DownloadResumeLink />
       </p>
       <div
         sx={{

@@ -43,6 +43,12 @@ const MainLinks = ({ onMenuClose, menuOpen }: MainLinksProps) => {
         to="#contact"
         text="Contact"
       />
+      <NavBarLink
+        tabIndex={menuOpen ? 2 : -1}
+        onClick={handleLinkClick}
+        to="#projects"
+        text="Projects"
+      />
     </ul>
   );
 };

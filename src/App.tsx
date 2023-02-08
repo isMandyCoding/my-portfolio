@@ -17,7 +17,8 @@ const App = () => {
       sx={{
         display: "flex",
         justifyContent: "center",
-        maxHeight: "100vh",
+        // maxHeight: "100vh",
+        height: "100vh",
       }}
     >
       <GeneralPageLayout />

@@ -154,7 +154,7 @@ const ContactPage = (props: ContactPageProps) => {
         subHeadingText="I'm interested in new opportunities."
       />
       <p>
-        You can also email me directly at{" "}
+        Email me directly at{" "}
         <Link href="mailto:amanda.everett.codes@gmail.com">
           amanda.everett.codes@gmail.com
         </Link>

@@ -7,6 +7,7 @@ import ExperiencePage from "./ExperiencePage";
 import ContactPage from "./ContactPage";
 import { keyframes } from "@emotion/react";
 import InitialLoadMessage from "../components/InitialLoadMessage";
+import ProjectsPage from "./ProjectsPage";
 
 const fadeIn = keyframes({
   from: {
@@ -53,7 +54,6 @@ export default function GeneralPageLayout({
           display: "grid",
           gridTemplateRows: ["64px 1fr 32px", "64px 1fr 64px"],
           gap: 1,
-          height: "100vh",
           position: "relative",
         }}
       >
@@ -72,7 +72,7 @@ export default function GeneralPageLayout({
               display: "inline-block",
               borderTop: (theme) => `1px solid ${theme?.colors?.accent}`,
               borderLeft: (theme) => `1px solid ${theme?.colors?.accent}`,
-              width: "16rem",
+              width: ["95%", "16rem"],
               height: [0, "8rem"],
               padding: [0, 1],
             },
@@ -135,14 +135,19 @@ export default function GeneralPageLayout({
                   p: ["0 32px", "0 64px 0 48px", "0 72px"],
                 }}
               />
+              <ProjectsPage
+                sx={{
+                  p: ["0 32px", "0 64px 0 48px", "0 72px"],
+                  marginBottom: "30vh",
+                }}
+              />
             </div>
           </div>
         </main>
         <div
-          id="bottomBar"
           sx={{
             mx: [2, 4],
-            position: "relative",
+            position: "sticky",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -155,7 +160,7 @@ export default function GeneralPageLayout({
               right: ["0", "16px", "48px"],
               borderBottom: (theme) => `1px solid ${theme?.colors?.accent}`,
               borderRight: (theme) => `1px solid ${theme?.colors?.accent}`,
-              width: "16rem",
+              width: ["95%", "16rem"],
               height: [0, "8rem"],
             },
           }}

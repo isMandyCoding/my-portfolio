@@ -38,9 +38,10 @@ const InitialLoadMessage = () => {
     <div
       sx={{
         position: "fixed",
-        top: "45%",
+        height: "100vh",
         display: "flex",
         flexDirection: "column",
+        justifyContent: "center",
         alignItems: "center",
         animation: `${fadeOut} 1s forwards 3s`,
       }}
