@@ -38,7 +38,7 @@ const ExperiencePage = (props: ExperiencePageProps) => {
 
   const education = [
     {
-      cardTitle: "Galvanize",
+      cardTitle: "Galvanize Coding Bootcamp",
       cardSubtitle: "Web Development Immersive",
       cardContent: "Oct 2018 - Apr 2019",
     },

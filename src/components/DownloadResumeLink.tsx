@@ -1,21 +1,16 @@
 /** @jsxImportSource theme-ui */
-import { useContext } from "react";
-import { ResumeContext } from "../providers/ResumeProvider";
 import Link from "./Link";
+import MandyResume from "../assets/MandyCodesResume_0207.pdf";
 
 const DownloadResumeLink = () => {
-  const { anchorUrl } = useContext(ResumeContext);
-  const fallbackLink = "https://www.linkedin.com/in/amanda-everett";
-  const fallBackText = "Connect on LinkedIn";
-
   return (
     <Link
       target="_blank"
       rel="noopener,noreferrer"
       download="MandyCodesResume.pdf"
-      href={anchorUrl ? anchorUrl : fallbackLink}
+      href={MandyResume}
     >
-      {anchorUrl ? "Download My Resume" : fallBackText}
+      Download My Resume
     </Link>
   );
 };

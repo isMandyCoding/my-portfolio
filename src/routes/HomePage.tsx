@@ -1,14 +1,14 @@
 /** @jsxImportSource theme-ui */
 import PageHeading from "../components/PageHeading";
+import SkillIcon from "../components/SkillIcon";
 import { ReactComponent as JavaScriptIcon } from "../svg/java-script.svg";
 import { ReactComponent as TypescriptIcon } from "../svg/typescript_logo_2020.svg";
 import { ReactComponent as ReactIcon } from "../svg/atom.svg";
 import { ReactComponent as NodeIcon } from "../svg/node-js.svg";
-import { ReactComponent as MongoDBIcon } from "../svg/leaf.svg";
+import { ReactComponent as MongoDBIcon } from "../svg/mongodb.svg";
 import { ReactComponent as SQLIcon } from "../svg/database.svg";
-import { ReactComponent as LaravelIcon } from "../svg/laravel_logo.svg";
-import { ReactComponent as GitIcon } from "../svg/git.svg";
-import SkillIcon from "../components/SkillIcon";
+import { ReactComponent as LaravelIcon } from "../svg/laravel_logo.svg"; //PostgreSQL_logo
+import { ReactComponent as PostgresIcon } from "../svg/PostgreSQL_logo.svg"; //PostgreSQL_logo
 import { HTMLAttributes } from "react";
 import { SxProp } from "theme-ui";
 import Button from "../components/Button";
@@ -31,8 +31,8 @@ const HomePage = (props: HomePageProps) => {
         }}
       >
         Hello! My name is Mandy and I'm a full-stack developer with a focus on
-        the PERN stack with Typescript and Laravel. In fact, I built this
-        website with{" "}
+        the PERN stack (PostgreSQL, Express, React, Node) with Typescript and
+        Laravel. In fact, I built this website with{" "}
         <Link
           href="https://reactjs.org/docs/getting-started.html"
           target="_blank"
@@ -69,12 +69,6 @@ const HomePage = (props: HomePageProps) => {
         }}
       >
         <SkillIcon svg={<JavaScriptIcon />} skill="Javascript" />
-        <SkillIcon svg={<ReactIcon />} skill="React" />
-        <SkillIcon svg={<NodeIcon />} skill="NodeJS" />
-        <SkillIcon svg={<MongoDBIcon />} skill="MongoDB" />
-        <SkillIcon svg={<SQLIcon />} skill="SQL" />
-        <SkillIcon svg={<LaravelIcon />} skill="PHP/Laravel" />
-        <SkillIcon svg={<GitIcon />} skill="Git" />
         <SkillIcon
           svg={<TypescriptIcon />}
           skill="Typescript"
@@ -91,6 +85,22 @@ const HomePage = (props: HomePageProps) => {
             },
           }}
         />
+        <SkillIcon
+          svg={<ReactIcon />}
+          skill="React"
+          sx={{
+            svg: {
+              circle: {
+                fill: "text",
+              },
+            },
+          }}
+        />
+        <SkillIcon svg={<NodeIcon />} skill="NodeJS" />
+        <SkillIcon svg={<PostgresIcon />} skill="PostgreSQL" />
+        <SkillIcon svg={<MongoDBIcon />} skill="MongoDB" />
+        <SkillIcon svg={<SQLIcon />} skill="SQL" />
+        <SkillIcon svg={<LaravelIcon />} skill="PHP/Laravel" />
       </div>
     </section>
   );
