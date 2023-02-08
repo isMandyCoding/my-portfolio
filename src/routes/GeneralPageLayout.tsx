@@ -6,20 +6,8 @@ import HomePage from "./HomePage";
 import ExperiencePage from "./ExperiencePage";
 import ContactPage from "./ContactPage";
 import { keyframes } from "@emotion/react";
-import StyleableSVG from "../components/StyleableSVG";
-import { ReactComponent as MyIcon } from "../svg/Logo.svg";
-
-const typing = keyframes({
-  from: {
-    width: 0,
-  },
-});
-
-const blink = keyframes({
-  "50%": {
-    borderColor: "transparent",
-  },
-});
+import InitialLoadMessage from "../components/InitialLoadMessage";
+import ProjectsPage from "./ProjectsPage";
 
 const fadeIn = keyframes({
   from: {
@@ -27,18 +15,6 @@ const fadeIn = keyframes({
   },
   to: {
     opacity: 1,
-  },
-});
-
-const fadeOut = keyframes({
-  from: {
-    opacity: 1,
-    display: "flex",
-  },
-  to: {
-    opacity: 0,
-    display: "none",
-    height: 0,
   },
 });
 
@@ -72,12 +48,12 @@ export default function GeneralPageLayout({
         },
       }}
     >
+      <InitialLoadMessage />
       <div
         sx={{
           display: "grid",
           gridTemplateRows: ["64px 1fr 32px", "64px 1fr 64px"],
           gap: 1,
-          height: "100vh",
           position: "relative",
         }}
       >
@@ -96,7 +72,7 @@ export default function GeneralPageLayout({
               display: "inline-block",
               borderTop: (theme) => `1px solid ${theme?.colors?.accent}`,
               borderLeft: (theme) => `1px solid ${theme?.colors?.accent}`,
-              width: "16rem",
+              width: ["95%", "16rem"],
               height: [0, "8rem"],
               padding: [0, 1],
             },
@@ -159,14 +135,19 @@ export default function GeneralPageLayout({
                   p: ["0 32px", "0 64px 0 48px", "0 72px"],
                 }}
               />
+              <ProjectsPage
+                sx={{
+                  p: ["0 32px", "0 64px 0 48px", "0 72px"],
+                  marginBottom: "30vh",
+                }}
+              />
             </div>
           </div>
         </main>
         <div
-          id="bottomBar"
           sx={{
             mx: [2, 4],
-            position: "relative",
+            position: "sticky",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
@@ -179,46 +160,13 @@ export default function GeneralPageLayout({
               right: ["0", "16px", "48px"],
               borderBottom: (theme) => `1px solid ${theme?.colors?.accent}`,
               borderRight: (theme) => `1px solid ${theme?.colors?.accent}`,
-              width: "16rem",
+              width: ["95%", "16rem"],
               height: [0, "8rem"],
             },
           }}
         ></div>
       </div>
       <MobileMenuDrawer isOpen={menuOpen} onMenuClose={handleMenuClose} />
-
-      <div
-        sx={{
-          position: "fixed",
-          top: "45vh",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          animation: `${fadeOut} 1s forwards 3s`,
-        }}
-      >
-        <StyleableSVG
-          svg={<MyIcon />}
-          sx={{
-            svg: {
-              width: "120px",
-              height: "120px",
-            },
-          }}
-        />
-        <p
-          sx={{
-            width: "22ch",
-            fontSize: 3,
-            animation: `${typing} 2s steps(22) 0s, ${blink} .5s step-end infinite alternate`,
-            whiteSpace: "nowrap",
-            overflow: "hidden",
-            borderRight: (theme) => `3px solid ${theme.colors?.text}`,
-          }}
-        >
-          Welcome to my website.
-        </p>
-      </div>
     </div>
   );
 }

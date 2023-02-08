@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-import React, { useState } from "react";
+import React from "react";
 
 export interface InputProps
   extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -7,15 +7,16 @@ export interface InputProps
   value: any;
   label: string;
   isHoneypot?: boolean;
+  touched?: boolean;
 }
 
-const Input = ({ labelProps, label, isHoneypot, ...props }: InputProps) => {
-  const [touched, setTouched] = useState(false);
-  const handleBlur = () => {
-    if (!touched) {
-      setTouched(true);
-    }
-  };
+const Input = ({
+  labelProps,
+  label,
+  isHoneypot,
+  touched,
+  ...props
+}: InputProps) => {
   return (
     <div
       sx={{
@@ -64,7 +65,6 @@ const Input = ({ labelProps, label, isHoneypot, ...props }: InputProps) => {
             borderColor: touched ? "primary" : "inherit",
           },
         }}
-        onBlur={handleBlur}
       />
     </div>
   );

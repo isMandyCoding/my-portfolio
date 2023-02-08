@@ -25,6 +25,7 @@ const StyleableSVG = ({ svg, isClickable, className }: StyleableSVGProp) => {
             fill: "text",
             transition: "150ms",
           },
+
           "&:hover": {
             cursor: isClickable ? "pointer" : "auto",
             path: {

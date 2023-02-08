@@ -1,21 +1,14 @@
 /** @jsxImportSource theme-ui */
-import React, { TextareaHTMLAttributes, useState } from "react";
+import React, { TextareaHTMLAttributes } from "react";
 
 export interface TextAreaProps
   extends TextareaHTMLAttributes<HTMLTextAreaElement> {
   label: string;
   value: any;
+  touched?: boolean;
 }
 
-const TextArea = ({ label, ...props }: TextAreaProps) => {
-  const [touched, setTouched] = useState(false);
-
-  const handleBlur = () => {
-    if (!touched) {
-      setTouched(true);
-    }
-  };
-
+const TextArea = ({ label, touched, ...props }: TextAreaProps) => {
   return (
     <div
       sx={{
@@ -63,7 +56,6 @@ const TextArea = ({ label, ...props }: TextAreaProps) => {
             borderColor: touched ? "primary" : "inherit",
           },
         }}
-        onBlur={handleBlur}
       ></textarea>
     </div>
   );

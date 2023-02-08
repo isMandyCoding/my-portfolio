@@ -10,9 +10,15 @@ const ProjectsPage = (props: ProjectsPageProps) => {
     <section className={props.className}>
       <PageHeading
         href="projects"
-        headingText="Projects Page"
+        headingText="My Projects"
         subHeadingText="Coming soon..."
       />
+      <p>
+        I believe it's important to deliver value frequently and re-iterate to
+        build on existing features. That's why I've released the experience and
+        contact portion of this website while this projects page is in progress.
+        Check back here for more information on my projects!
+      </p>
     </section>
   );
 };
