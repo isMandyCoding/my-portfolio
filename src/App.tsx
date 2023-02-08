@@ -17,7 +17,6 @@ const App = () => {
       sx={{
         display: "flex",
         justifyContent: "center",
-        // maxHeight: "100vh",
         height: "100vh",
       }}
     >

@@ -1,6 +1,5 @@
 /** @jsxImportSource theme-ui */
 import Link from "./Link";
-import MandyResume from "../assets/MandyCodesResume_0207.pdf";
 
 const DownloadResumeLink = () => {
   return (
@@ -8,7 +7,7 @@ const DownloadResumeLink = () => {
       target="_blank"
       rel="noopener,noreferrer"
       download="MandyCodesResume.pdf"
-      href={MandyResume}
+      href="https://d2bcvjnbo09z3m.cloudfront.net/MandyCodesResume.pdf"
     >
       Download My Resume
     </Link>
