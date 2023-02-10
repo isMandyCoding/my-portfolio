@@ -17,7 +17,10 @@ const ContactLinks = () => {
       }}
     >
       <span sx={{ mx: 2 }}>
-        <IconLink to="mailto:me@example.com" icon={<EmailIcon />} />
+        <IconLink
+          to="mailto:amanda.everett.codes@gmail.com"
+          icon={<EmailIcon />}
+        />
       </span>
       <span sx={{ mx: 2 }}>
         <IconLink
