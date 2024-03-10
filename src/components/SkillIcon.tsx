@@ -22,7 +22,8 @@ const SkillIcon = ({
       sx={{
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-around",
+        justifyContent: "space-between",
+        gap: "8px",
         alignItems: "center",
       }}
     >
@@ -41,6 +42,9 @@ const SkillIcon = ({
           fontSize: 1,
           my: 0,
           color: "lightText",
+          textWrap: "wrap",
+          textAlign: "center",
+          maxWidth: "88px",
         }}
       >
         {skill}
