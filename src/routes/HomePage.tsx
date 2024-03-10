@@ -5,10 +5,9 @@ import { ReactComponent as JavaScriptIcon } from "../svg/java-script.svg";
 import { ReactComponent as TypescriptIcon } from "../svg/typescript_logo_2020.svg";
 import { ReactComponent as ReactIcon } from "../svg/atom.svg";
 import { ReactComponent as NodeIcon } from "../svg/node-js.svg";
-import { ReactComponent as MongoDBIcon } from "../svg/mongodb.svg";
-import { ReactComponent as SQLIcon } from "../svg/database.svg";
-import { ReactComponent as LaravelIcon } from "../svg/laravel_logo.svg"; //PostgreSQL_logo
-import { ReactComponent as PostgresIcon } from "../svg/PostgreSQL_logo.svg"; //PostgreSQL_logo
+import { ReactComponent as AngularIcon } from "../svg/angular.svg";
+import { ReactComponent as GoogleCloudIcon } from "../svg/google-cloud.svg";
+import { ReactComponent as GitIcon } from "../svg/git.svg";
 import { HTMLAttributes } from "react";
 import { SxProp } from "theme-ui";
 import Button from "../components/Button";
@@ -31,8 +30,8 @@ const HomePage = (props: HomePageProps) => {
         }}
       >
         Hello! My name is Mandy and I'm a full-stack developer with a focus on
-        the PERN stack (PostgreSQL, Express, React, Node) with Typescript and
-        Laravel. In fact, I built this website with{" "}
+        the PERN stack (PostgreSQL, Express, React, Node) with Typescript. In
+        fact, I built this website with{" "}
         <Link
           href="https://reactjs.org/docs/getting-started.html"
           target="_blank"
@@ -68,10 +67,9 @@ const HomePage = (props: HomePageProps) => {
           gap: 3,
         }}
       >
-        <SkillIcon svg={<JavaScriptIcon />} skill="Javascript" />
         <SkillIcon
           svg={<TypescriptIcon />}
-          skill="Typescript"
+          skill="Typescript/Javascript"
           sx={{
             svg: {
               path: {
@@ -80,6 +78,22 @@ const HomePage = (props: HomePageProps) => {
               "&:hover": {
                 path: {
                   fill: "background",
+                },
+              },
+            },
+          }}
+        />
+        <SkillIcon
+          svg={<AngularIcon />}
+          skill="Angular"
+          sx={{
+            svg: {
+              path: {
+                fill: "text",
+              },
+              "&:hover": {
+                path: {
+                  fill: "text",
                 },
               },
             },
@@ -97,10 +111,11 @@ const HomePage = (props: HomePageProps) => {
           }}
         />
         <SkillIcon svg={<NodeIcon />} skill="NodeJS" />
-        <SkillIcon svg={<PostgresIcon />} skill="PostgreSQL" />
-        <SkillIcon svg={<MongoDBIcon />} skill="MongoDB" />
-        <SkillIcon svg={<SQLIcon />} skill="SQL" />
-        <SkillIcon svg={<LaravelIcon />} skill="PHP/Laravel" />
+        <SkillIcon svg={<GitIcon />} skill="Github/Bitbucket" />
+        <SkillIcon
+          svg={<GoogleCloudIcon />}
+          skill="Google Cloud Platform (GCP)"
+        />
       </div>
     </section>
   );
